@@ -31,6 +31,7 @@ public class AlphaVantageClient {
     Request request = new Request.Builder()
       .url(uri.toString())
       .build();
+    System.out.println(uri);
     try (Response response = this.client.newCall(request).execute()) {
       return response.body().string();
     }
@@ -41,12 +42,13 @@ public class AlphaVantageClient {
     QueryParams params = queryParams();
     params.setFunction(Function.TIME_SERIES_DAILY);
     params.setSymbol(symbol);
-    query(params);
+    String test = query(params);
+    System.out.println(test);
   }
 
   private QueryParams queryParams() {
     QueryParams params = new QueryParams();
-    params.setApiKey(this.config.getApiKey());
+    params.setApikey(this.config.getApiKey());
     return params;
   }
 
@@ -59,7 +61,7 @@ public class AlphaVantageClient {
       .setPath(this.config.getPath())
       .addParameter("symbol", params.getSymbol())
       .addParameter("function", params.getFunction().toString())
-      .addParameter("apiKey", params.getApiKey());
+      .addParameter("apikey", params.getApikey());
     return uriBuilder.build();
   }
 }

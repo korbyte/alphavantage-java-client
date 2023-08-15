@@ -6,5 +6,5 @@ import lombok.Data;
 public class QueryParams {
   private Function function;
   private String symbol;
-  private String apiKey;
+  private String apikey;
 }
