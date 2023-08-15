@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    annotationProcessor("org.projectlombok:lombok:1.18.26")
+
     implementation("org.projectlombok:lombok:1.18.26")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation ("org.apache.httpcomponents:httpclient:4.5.13")
