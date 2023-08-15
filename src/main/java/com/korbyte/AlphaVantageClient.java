@@ -1,10 +1,8 @@
 package com.korbyte;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.korbyte.models.DailyResponse;
-import com.korbyte.models.Function;
 import com.korbyte.models.QueryParams;
+import lombok.Data;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -13,32 +11,29 @@ import org.apache.http.client.utils.URIBuilder;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
 
+@Data
 public class AlphaVantageClient {
 
   private final AlphaVantageConfig config;
 
   private final OkHttpClient client;
 
-  private final Map<Function, Object> functionMap;
-
   public AlphaVantageClient(AlphaVantageConfig config) {
     this.config = config;
     this.client = new OkHttpClient();
-    this.functionMap = new HashMap<>();
   }
 
-  public AlphaVantageConfig getConfig() {
-    return this.config;
-  }
-
-  public <T> T query(Class<T> tClass, QueryParams params) throws IOException, URISyntaxException {
+  public <T> T query(Class<T> mappedClass, QueryParams params) throws URISyntaxException, IOException {
+    params.setApikey(this.config.getApiKey());
     URI uri = buildQueryURI(params);
+    return request(mappedClass, uri);
+  }
+
+  private <T> T request(Class<T> tClass, URI uri) throws IOException {
     Request request = new Request.Builder()
-      .url(uri.toString())
-      .build();
+            .url(uri.toString())
+            .build();
     T data = null;
     try (Response response = this.client.newCall(request).execute()) {
       if (response.body() != null) {
@@ -48,21 +43,6 @@ public class AlphaVantageClient {
       }
     }
     return data;
-  }
-
-  public void getDaily(String symbol) throws IOException, URISyntaxException {
-    //TODO remove this method, the object is to make this a map
-    QueryParams params = queryParams();
-    params.setFunction(Function.TIME_SERIES_DAILY);
-    params.setSymbol(symbol);
-    DailyResponse test = query(DailyResponse.class, params);
-    System.out.println(test);
-  }
-
-  private QueryParams queryParams() {
-    QueryParams params = new QueryParams();
-    params.setApikey(this.config.getApiKey());
-    return params;
   }
 
   private URI buildQueryURI(QueryParams params) throws URISyntaxException {
