@@ -1,9 +1,11 @@
 package com.korbyte;
 
+import com.korbyte.models.Function;
 import com.korbyte.models.QueryParams;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.apache.http.client.utils.URIBuilder;
 
 import java.io.IOException;
 import java.net.URI;
