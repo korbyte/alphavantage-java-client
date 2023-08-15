@@ -1,4 +1,4 @@
-package com.korbyte.models;
+package com.korbyte.models.core.daily;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.models.metadata.MetadataDaily;
