@@ -2,6 +2,7 @@ package com.korbyte;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.korbyte.models.DailyResponse;
 import com.korbyte.models.Function;
 import com.korbyte.models.QueryParams;
 import okhttp3.OkHttpClient;
@@ -33,7 +34,7 @@ public class AlphaVantageClient {
     return this.config;
   }
 
-  public <T> T query(QueryParams params) throws IOException, URISyntaxException {
+  public <T> T query(Class<T> tClass, QueryParams params) throws IOException, URISyntaxException {
     URI uri = buildQueryURI(params);
     Request request = new Request.Builder()
       .url(uri.toString())
@@ -43,7 +44,7 @@ public class AlphaVantageClient {
       if (response.body() != null) {
         String body = response.body().string();
         ObjectMapper mapper = new ObjectMapper();
-        data = mapper.readValue(body, new TypeReference<T>() {});
+        data = mapper.readValue(body, tClass);
       }
     }
     return data;
@@ -54,7 +55,7 @@ public class AlphaVantageClient {
     QueryParams params = queryParams();
     params.setFunction(Function.TIME_SERIES_DAILY);
     params.setSymbol(symbol);
-    String test = query(params);
+    DailyResponse test = query(DailyResponse.class, params);
     System.out.println(test);
   }
 
