@@ -1,11 +1,9 @@
 package com.korbyte;
 
-import co.alphavantage.client.models.Function;
-import co.alphavantage.client.models.QueryParams;
+import com.korbyte.models.QueryParams;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.apache.hc.core5.net.URIBuilder;
 
 import java.io.IOException;
 import java.net.URI;
