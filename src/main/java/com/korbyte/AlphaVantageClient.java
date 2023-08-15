@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-@Data
 public class AlphaVantageClient {
 
   private final AlphaVantageConfig config;
