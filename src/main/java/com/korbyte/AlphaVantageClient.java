@@ -1,5 +1,7 @@
 package com.korbyte;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.models.Function;
 import com.korbyte.models.QueryParams;
 import okhttp3.OkHttpClient;
@@ -10,6 +12,8 @@ import org.apache.http.client.utils.URIBuilder;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AlphaVantageClient {
 
@@ -17,24 +21,32 @@ public class AlphaVantageClient {
 
   private final OkHttpClient client;
 
+  private final Map<Function, Object> functionMap;
+
   public AlphaVantageClient(AlphaVantageConfig config) {
     this.config = config;
     this.client = new OkHttpClient();
+    this.functionMap = new HashMap<>();
   }
 
   public AlphaVantageConfig getConfig() {
     return this.config;
   }
 
-  public String query(QueryParams params) throws IOException, URISyntaxException {
+  public <T> T query(QueryParams params) throws IOException, URISyntaxException {
     URI uri = buildQueryURI(params);
     Request request = new Request.Builder()
       .url(uri.toString())
       .build();
-    System.out.println(uri);
+    T data = null;
     try (Response response = this.client.newCall(request).execute()) {
-      return response.body().string();
+      if (response.body() != null) {
+        String body = response.body().string();
+        ObjectMapper mapper = new ObjectMapper();
+        data = mapper.readValue(body, new TypeReference<T>() {});
+      }
     }
+    return data;
   }
 
   public void getDaily(String symbol) throws IOException, URISyntaxException {
@@ -55,13 +67,12 @@ public class AlphaVantageClient {
   private URI buildQueryURI(QueryParams params) throws URISyntaxException {
     URIBuilder uriBuilder = new URIBuilder();
     uriBuilder.setPath(this.config.getPath());
-    uriBuilder
-      .setScheme(this.config.getProtocol())
-      .setHost(this.config.getHost())
-      .setPath(this.config.getPath())
-      .addParameter("symbol", params.getSymbol())
-      .addParameter("function", params.getFunction().toString())
-      .addParameter("apikey", params.getApikey());
+    uriBuilder.setScheme(this.config.getProtocol())
+            .setHost(this.config.getHost())
+            .setPath(this.config.getPath())
+            .addParameter("symbol", params.getSymbol())
+            .addParameter("function", params.getFunction().toString())
+            .addParameter("apikey", params.getApikey());
     return uriBuilder.build();
   }
 }
