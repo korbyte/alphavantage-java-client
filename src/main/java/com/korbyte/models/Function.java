@@ -11,5 +11,6 @@ public enum Function {
   GLOBAL_QUOTE,
   SYMBOL_SEARCH,
   MARKET_STATUS,
+  LISTING_STATUS
 
 }

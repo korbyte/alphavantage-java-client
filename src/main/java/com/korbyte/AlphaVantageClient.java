@@ -3,9 +3,7 @@ package com.korbyte;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.models.QueryParams;
 import lombok.Data;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.*;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.io.IOException;
@@ -35,13 +33,34 @@ public class AlphaVantageClient {
             .build();
     T data = null;
     try (Response response = this.client.newCall(request).execute()) {
-      if (response.body() != null) {
-        String body = response.body().string();
-        ObjectMapper mapper = new ObjectMapper();
-        data = mapper.readValue(body, tClass);
+      ResponseBody body = response.body();
+      if (body != null) {
+        data = handleResponseTypes(tClass, body);
       }
     }
     return data;
+  }
+
+  private <T> T handleResponseTypes(Class<T> tClass, ResponseBody body) throws IOException {
+    T data = null;
+    MediaType mediaType = body.contentType();
+    if (mediaType != null) {
+      switch (mediaType.subtype()) {
+        case "x-download" -> handleDownload();
+        case "json" -> data = handleJSON(tClass, body);
+      }
+    }
+    return data;
+  }
+
+  private <T> T handleDownload(Class<T> tClass, ResponseBody body) {
+
+  }
+
+  private <T> T handleJSON(Class<T> tClass, ResponseBody body) throws IOException {
+    String bodyString = body.string();
+    ObjectMapper mapper = new ObjectMapper();
+    return mapper.readValue(bodyString, tClass);
   }
 
   private URI buildQueryURI(QueryParams params) throws URISyntaxException {

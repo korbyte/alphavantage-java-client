@@ -12,5 +12,5 @@ public class DailyResponse {
     private MetadataDaily metaData;
 
     @JsonProperty("Time Series (Daily)")
-    private Map<String, DailyData> timeSeriesDailyAdjusted;
+    private Map<String, DailyData> timeSeriesDaily;
 }
