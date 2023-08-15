@@ -1,3 +1,5 @@
+src/main/java/com/korbyte/Main.java
+
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
