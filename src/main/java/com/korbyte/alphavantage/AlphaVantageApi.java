@@ -2,6 +2,9 @@ package com.korbyte.alphavantage;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Getter;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -13,10 +16,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+@Data
 public abstract class AlphaVantageApi {
 
+  @Getter(value= AccessLevel.PRIVATE)
   private final AlphaVantageConfig config;
 
+  @Getter(value=AccessLevel.PRIVATE)
   private final OkHttpClient client;
 
   public AlphaVantageApi(AlphaVantageConfig config, OkHttpClient client) {
