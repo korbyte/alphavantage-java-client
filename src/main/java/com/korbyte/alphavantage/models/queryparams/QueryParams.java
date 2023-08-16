@@ -1,6 +1,6 @@
 package com.korbyte.alphavantage.models.queryparams;
 
-import com.korbyte.alphavantage.base.ApiFunction;
+import com.korbyte.alphavantage.ApiFunction;
 import lombok.Data;
 
 @Data
