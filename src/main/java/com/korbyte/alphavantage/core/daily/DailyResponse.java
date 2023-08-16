@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage.core.daily;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.korbyte.alphavantage.models.metadata.MetadataDaily;
+import com.korbyte.alphavantage.metadata.MetadataDaily;
 import lombok.Data;
 
 import java.util.Map;

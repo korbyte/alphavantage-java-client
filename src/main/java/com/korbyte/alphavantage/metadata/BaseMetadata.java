@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.models.metadata;
+package com.korbyte.alphavantage.metadata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

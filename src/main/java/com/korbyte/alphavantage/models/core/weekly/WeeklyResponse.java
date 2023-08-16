@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage.models.core.weekly;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.korbyte.alphavantage.models.metadata.MetadataWeeklyMonthly;
+import com.korbyte.alphavantage.metadata.MetadataWeeklyMonthly;
 import com.korbyte.alphavantage.models.positiondata.PositionData;
 import lombok.Data;
 
