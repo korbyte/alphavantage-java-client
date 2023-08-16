@@ -13,13 +13,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
-public abstract class ApiService {
+public abstract class AlphaVantageApi {
 
   private final AlphaVantageConfig config;
 
   private final OkHttpClient client;
 
-  public ApiService(AlphaVantageConfig config, OkHttpClient client) {
+  public AlphaVantageApi(AlphaVantageConfig config, OkHttpClient client) {
     this.config = config;
     this.client = client;
   }

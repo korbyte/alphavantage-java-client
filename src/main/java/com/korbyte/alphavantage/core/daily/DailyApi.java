@@ -3,14 +3,14 @@ package com.korbyte.alphavantage.core.daily;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.ApiFunction;
-import com.korbyte.alphavantage.ApiService;
+import com.korbyte.alphavantage.AlphaVantageApi;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class DailyService extends ApiService {
-  public DailyService(AlphaVantageConfig config, OkHttpClient client) {
+public class DailyApi extends AlphaVantageApi {
+  public DailyApi(AlphaVantageConfig config, OkHttpClient client) {
     super(config, client);
   }
 

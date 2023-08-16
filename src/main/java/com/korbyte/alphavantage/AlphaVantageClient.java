@@ -8,8 +8,6 @@ import okhttp3.*;
 @Data
 public class AlphaVantageClient {
 
-  private final AlphaVantageConfig config;
-
   private final CoreApi core;
 
   /**
@@ -18,7 +16,6 @@ public class AlphaVantageClient {
    * @param config AlphaVantageConfig object
    */
   public AlphaVantageClient(AlphaVantageConfig config) {
-    this.config = config;
     OkHttpClient client = new OkHttpClient();
     this.core = new CoreApi(config, client);
   }

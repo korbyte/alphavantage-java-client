@@ -1,27 +1,22 @@
 package com.korbyte.alphavantage.core;
 
+import lombok.Data;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.DailyParams;
-import com.korbyte.alphavantage.core.daily.DailyResponse;
-import com.korbyte.alphavantage.core.daily.DailyService;
+import com.korbyte.alphavantage.core.daily.DailyApi;
 import okhttp3.OkHttpClient;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-
+@Data
 public class CoreApi {
 
   private final AlphaVantageConfig config;
 
   private final OkHttpClient client;
 
+  private DailyApi daily;
+
   public CoreApi(AlphaVantageConfig config, OkHttpClient client) {
     this.config = config;
     this.client = client;
-  }
-
-  public DailyResponse getDaily(DailyParams params) throws URISyntaxException, IOException {
-    DailyService dailyService = new DailyService(this.config, this.client);
-    return dailyService.get(params);
+    this.daily = new DailyApi(config, client);
   }
 }
