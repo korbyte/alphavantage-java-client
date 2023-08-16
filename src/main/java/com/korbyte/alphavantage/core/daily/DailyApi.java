@@ -2,7 +2,7 @@ package com.korbyte.alphavantage.core.daily;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.ApiFunction;
+import com.korbyte.alphavantage.params.ApiFunction;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import okhttp3.OkHttpClient;
 

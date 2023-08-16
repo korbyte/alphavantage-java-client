@@ -1,13 +1,15 @@
 package com.korbyte.alphavantage.core.daily;
 
-import com.korbyte.alphavantage.ApiFunction;
+import com.korbyte.alphavantage.params.ApiFunction;
+import com.korbyte.alphavantage.params.DataType;
+import com.korbyte.alphavantage.params.OutputSize;
 import lombok.Data;
 
 @Data
 public class DailyParams {
   private ApiFunction function;
-  private String apiKey;
+  private String apikey;
   private String symbol;
-  private String outputSize;
-  private String datatype;
+  private OutputSize outputSize;
+  private DataType datatype;
 }
