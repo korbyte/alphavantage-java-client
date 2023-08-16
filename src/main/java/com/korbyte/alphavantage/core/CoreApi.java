@@ -9,10 +9,8 @@ import okhttp3.OkHttpClient;
 public class CoreApi {
 
   private final AlphaVantageConfig config;
-
   private final OkHttpClient client;
-
-  private DailyApi daily;
+  private final DailyApi daily;
 
   public CoreApi(AlphaVantageConfig config, OkHttpClient client) {
     this.config = config;
