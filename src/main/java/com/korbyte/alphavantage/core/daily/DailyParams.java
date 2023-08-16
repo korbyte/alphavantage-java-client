@@ -1,14 +1,11 @@
 package com.korbyte.alphavantage.core.daily;
 
-import com.korbyte.alphavantage.params.BaseParams;
 import com.korbyte.alphavantage.params.DataType;
 import com.korbyte.alphavantage.params.OutputSize;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class DailyParams extends BaseParams {
+public class DailyParams {
   private String symbol;
   private OutputSize outputSize;
   private DataType datatype;

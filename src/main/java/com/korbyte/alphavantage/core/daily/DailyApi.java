@@ -15,7 +15,6 @@ public class DailyApi extends AlphaVantageApi {
   }
 
   public DailyResponse get(DailyParams params) throws URISyntaxException, IOException {
-    params.setFunction(ApiFunction.TIME_SERIES_DAILY);
     String data = this.query(params);
     return new ObjectMapper().readValue(data, DailyResponse.class);
   }
