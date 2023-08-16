@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.models;
+package com.korbyte.alphavantage.models.queryparams;
 
 import com.korbyte.alphavantage.base.ApiFunction;
 import com.korbyte.alphavantage.models.queryparams.OutputSize;

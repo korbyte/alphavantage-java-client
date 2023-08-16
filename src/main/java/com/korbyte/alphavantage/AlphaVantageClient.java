@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.korbyte.alphavantage.models.QueryParams;
+import com.korbyte.alphavantage.models.queryparams.QueryParams;
 import okhttp3.*;
 import org.apache.http.client.utils.URIBuilder;
 

@@ -4,7 +4,7 @@ import com.korbyte.alphavantage.AlphaVantageClient;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.base.ApiFunction;
 import com.korbyte.alphavantage.base.ApiInterface;
-import com.korbyte.alphavantage.models.QueryParams;
+import com.korbyte.alphavantage.models.queryparams.QueryParams;
 import com.korbyte.alphavantage.models.core.daily.DailyAdjustedResponse;
 
 import java.io.IOException;
