@@ -1,4 +1,4 @@
-package com.korbyte;
+package com.korbyte.alphavantage;
 
 import lombok.Data;
 

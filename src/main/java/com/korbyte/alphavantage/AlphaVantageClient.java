@@ -13,16 +13,16 @@ import java.util.Map;
 
 public class AlphaVantageClient {
 
-  protected final Configuration config;
+  protected final AlphaVantageConfig config;
 
   private final OkHttpClient client;
 
   /**
    * Constructor
    *
-   * @param config Configuration object
+   * @param config AlphaVantageConfig object
    */
-  public AlphaVantageClient(Configuration config) {
+  public AlphaVantageClient(AlphaVantageConfig config) {
     this.config = config;
     this.client = new OkHttpClient();
   }

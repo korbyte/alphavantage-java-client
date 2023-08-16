@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage.core.daily;
 
 import com.korbyte.alphavantage.AlphaVantageClient;
-import com.korbyte.alphavantage.Configuration;
+import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.base.ApiFunction;
 import com.korbyte.alphavantage.base.ApiInterface;
 import com.korbyte.alphavantage.models.QueryParams;
@@ -16,7 +16,7 @@ public class DailyApi extends AlphaVantageClient implements ApiInterface<String,
 
   private final Class<DailyResponse> responseClass = DailyResponse.class;
 
-  public DailyApi(Configuration config) {
+  public DailyApi(AlphaVantageConfig config) {
     super(config);
   }
 
