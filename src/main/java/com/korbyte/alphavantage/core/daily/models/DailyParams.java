@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.daily;
+package com.korbyte.alphavantage.core.daily.models;
 
 import com.korbyte.alphavantage.params.DataType;
 import com.korbyte.alphavantage.params.OutputSize;
