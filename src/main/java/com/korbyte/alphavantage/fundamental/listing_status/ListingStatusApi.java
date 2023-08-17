@@ -58,10 +58,6 @@ public class ListingStatusApi extends AlphaVantageApi {
     return listingStatusResponses;
   }
 
-  private void test() {
-
-  }
-
   private Date parseDateString(String dateString) {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     Date date = null;
