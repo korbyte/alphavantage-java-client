@@ -3,10 +3,7 @@ package com.korbyte.alphavantage.fundamental;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.fundamental.listing_status.ListingStatusApi;
-import lombok.AccessLevel;
-import lombok.Data;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 import okhttp3.OkHttpClient;
 

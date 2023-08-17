@@ -4,7 +4,7 @@ import com.korbyte.alphavantage.core.CoreApi;
 import com.korbyte.alphavantage.fundamental.FundamentalApi;
 import lombok.Data;
 import lombok.experimental.Accessors;
-import okhttp3.*;
+import okhttp3.OkHttpClient;
 
 
 @Data

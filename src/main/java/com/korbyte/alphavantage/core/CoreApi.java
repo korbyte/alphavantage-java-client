@@ -1,7 +1,6 @@
 package com.korbyte.alphavantage.core;
 
 import com.korbyte.alphavantage.AlphaVantageApi;
-import lombok.Data;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.core.daily.DailyApi;
 import lombok.Getter;
