@@ -23,7 +23,9 @@ public class DailyApi extends AlphaVantageApi {
   }
 
   /**
-   *
+   * This API returns raw (as-traded) daily time series
+   * (date, daily open, daily high, daily low, daily close, daily volume) of the global equity specified,
+   * covering 20+ years of historical data.
    * @param params
    * @return
    * @throws URISyntaxException
