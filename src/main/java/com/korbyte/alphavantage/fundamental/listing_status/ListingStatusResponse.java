@@ -16,10 +16,12 @@ public class ListingStatusResponse {
   private Date delistingDate;
   private String status;
 
-  public ListingStatusResponse() {}
+  public ListingStatusResponse() {
+  }
 
   /**
    * Full constructor
+   *
    * @param symbol
    * @param name
    * @param exchange

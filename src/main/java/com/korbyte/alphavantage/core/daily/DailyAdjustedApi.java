@@ -17,6 +17,7 @@ public class DailyAdjustedApi extends AlphaVantageApi {
 
   /**
    * This API returns raw (as-traded) daily time series
+   *
    * @param params DailyParams object
    * @return DailyResponse
    * @throws URISyntaxException

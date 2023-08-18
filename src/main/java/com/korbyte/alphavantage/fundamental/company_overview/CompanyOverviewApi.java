@@ -3,7 +3,6 @@ package com.korbyte.alphavantage.fundamental.company_overview;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedResponse;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;

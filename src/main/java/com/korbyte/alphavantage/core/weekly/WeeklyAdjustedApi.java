@@ -18,7 +18,7 @@ public class WeeklyAdjustedApi extends AlphaVantageApi {
     super(config, client);
   }
 
-    /**
+  /**
    * Get weekly adjusted time series
    *
    * @param params WeeklyParams

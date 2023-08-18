@@ -17,6 +17,7 @@ public class GlobalMarketStatusApi extends AlphaVantageApi {
 
   /**
    * This API returns market status and trading hours for a given market.
+   *
    * @param params GlobalMarketStatusParams object
    * @return GlobalMarketStatusResponse
    * @throws URISyntaxException

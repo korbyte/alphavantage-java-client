@@ -5,8 +5,6 @@ import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.core.monthly.models.MonthlyParams;
 import com.korbyte.alphavantage.core.monthly.models.MonthlyResponse;
-import com.korbyte.alphavantage.core.monthly.models.adjusted.MonthlyAdjustedParams;
-import com.korbyte.alphavantage.core.monthly.models.adjusted.MonthlyAdjustedResponse;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -31,18 +29,5 @@ public class MonthlyApi extends AlphaVantageApi {
   public MonthlyResponse get(MonthlyParams params) throws URISyntaxException, IOException {
     String data = this.query(params);
     return new ObjectMapper().readValue(data, MonthlyResponse.class);
-  }
-
-  /**
-   * Get Monthly adjusted time series
-   *
-   * @param params MonthlyAdjustedParams
-   * @return MonthlyAdjustedResponse
-   * @throws URISyntaxException
-   * @throws IOException
-   */
-  public MonthlyAdjustedResponse getAdjusted(MonthlyAdjustedParams params) throws URISyntaxException, IOException {
-    String data = this.query(params);
-    return new ObjectMapper().readValue(data, MonthlyAdjustedResponse.class);
   }
 }

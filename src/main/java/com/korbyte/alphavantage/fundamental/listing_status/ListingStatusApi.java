@@ -25,6 +25,7 @@ public class ListingStatusApi extends AlphaVantageApi {
 
   /**
    * Get the listing status of all securities supported by Alpha Vantage
+   *
    * @param params ListingStatusParams object
    * @return List of ListingStatusResponse objects
    * @throws URISyntaxException
@@ -39,6 +40,7 @@ public class ListingStatusApi extends AlphaVantageApi {
 
   /**
    * Parse the CSV data into a list of ListingStatusResponse objects
+   *
    * @param data CSV data
    * @return List of ListingStatusResponse objects
    * @throws CsvValidationException
@@ -75,6 +77,7 @@ public class ListingStatusApi extends AlphaVantageApi {
 
   /**
    * Parse a date string into a Date object
+   *
    * @param dateString Date string
    * @return Date object
    */
