@@ -15,4 +15,16 @@ public class ListingStatusResponse {
   private Date iopDate;
   private Date delistingDate;
   private String status;
+
+  public ListingStatusResponse() {}
+
+  public ListingStatusResponse(String symbol, String name, String exchange, String assetType, Date iopDate, Date delistingDate, String status) {
+    this.symbol = symbol;
+    this.name = name;
+    this.exchange = exchange;
+    this.assetType = assetType;
+    this.iopDate = iopDate;
+    this.delistingDate = delistingDate;
+    this.status = status;
+  }
 }

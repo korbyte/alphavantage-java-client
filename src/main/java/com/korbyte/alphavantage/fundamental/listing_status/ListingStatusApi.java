@@ -15,47 +15,69 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Listing Status API
+ */
 public class ListingStatusApi extends AlphaVantageApi {
   public ListingStatusApi(AlphaVantageConfig config, OkHttpClient client) {
     super(config, client);
   }
 
+  /**
+   * Get the listing status of all securities supported by Alpha Vantage
+   * @param params ListingStatusParams object
+   * @return List of ListingStatusResponse objects
+   * @throws URISyntaxException
+   * @throws IOException
+   * @throws CsvValidationException
+   */
   public List<ListingStatusResponse> get(ListingStatusParams params)
     throws URISyntaxException, IOException, CsvValidationException {
     String data = this.query(params);
     return parseCSV(data);
   }
 
+  /**
+   * Parse the CSV data into a list of ListingStatusResponse objects
+   * @param data CSV data
+   * @return List of ListingStatusResponse objects
+   * @throws CsvValidationException
+   * @throws IOException
+   */
   private List<ListingStatusResponse> parseCSV(String data) throws CsvValidationException, IOException {
-    CSVReader reader = new CSVReader(new StringReader(data));
     List<ListingStatusResponse> listingStatusResponses = new ArrayList<>();
 
-    String[] line;
-    reader.skip(1);
-    while ((line = reader.readNext()) != null) {
-      ListingStatusResponse listingStatusResponse = new ListingStatusResponse();
+    try (CSVReader reader = new CSVReader(new StringReader(data))) {
+      reader.skip(1); // skip the header
 
-      String symbol = line[0];
-      String name = line[1];
-      String exchange = line[2];
-      String assetType = line[3];
-      Date ipoDate = parseDateString(line[4]);
-      Date delistDate = parseDateString(line[5]);
-      String status = line[6];
+      String[] line;
+      while ((line = reader.readNext()) != null) {
+        Date ipoDate = parseDateString(line[4]);
+        Date delistDate = parseDateString(line[5]);
 
-      listingStatusResponse
-        .setSymbol(symbol)
-        .setName(name)
-        .setExchange(exchange)
-        .setAssetType(assetType)
-        .setIopDate(ipoDate)
-        .setDelistingDate(delistDate)
-        .setStatus(status);
-      listingStatusResponses.add(listingStatusResponse);
+        ListingStatusResponse listingStatusResponse = new ListingStatusResponse(
+          line[0], // symbol
+          line[1], // name
+          line[2], // exchange
+          line[3], // assetType
+          ipoDate,
+          delistDate,
+          line[6]  // status
+        );
+
+        listingStatusResponses.add(listingStatusResponse);
+      }
     }
+
     return listingStatusResponses;
   }
 
+
+  /**
+   * Parse a date string into a Date object
+   * @param dateString Date string
+   * @return Date object
+   */
   private Date parseDateString(String dateString) {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     Date date = null;
