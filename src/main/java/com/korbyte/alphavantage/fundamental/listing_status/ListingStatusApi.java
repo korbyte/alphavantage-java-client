@@ -52,9 +52,6 @@ public class ListingStatusApi extends AlphaVantageApi {
         .setIopDate(ipoDate)
         .setDelistingDate(delistDate)
         .setStatus(status);
-
-      System.out.println(listingStatusResponse);
-
       listingStatusResponses.add(listingStatusResponse);
     }
     return listingStatusResponses;
