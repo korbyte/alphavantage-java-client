@@ -3,8 +3,6 @@ package com.korbyte.alphavantage.core.global_market_status;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.models.DailyParams;
-import com.korbyte.alphavantage.core.daily.models.DailyResponse;
 import com.korbyte.alphavantage.core.global_market_status.models.GlobalMarketStatusParams;
 import com.korbyte.alphavantage.core.global_market_status.models.GlobalMarketStatusResponse;
 import okhttp3.OkHttpClient;
