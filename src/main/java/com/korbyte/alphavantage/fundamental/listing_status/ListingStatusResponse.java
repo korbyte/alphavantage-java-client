@@ -14,5 +14,5 @@ public class ListingStatusResponse {
   private String assetType;
   private Date iopDate;
   private Date delistingDate;
-  private Boolean status;
+  private String status;
 }

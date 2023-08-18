@@ -21,13 +21,13 @@ public class ListingStatusApi extends AlphaVantageApi {
   }
 
   public List<ListingStatusResponse> get(ListingStatusParams params)
-    throws URISyntaxException, IOException, CsvValidationException, ParseException
+    throws URISyntaxException, IOException, CsvValidationException
   {
     String data = this.query(params);
     return parseCSV(data);
   }
 
-  private List<ListingStatusResponse> parseCSV(String data) throws ParseException, CsvValidationException, IOException {
+  private List<ListingStatusResponse> parseCSV(String data) throws CsvValidationException, IOException {
     CSVReader reader = new CSVReader(new StringReader(data));
     List<ListingStatusResponse> listingStatusResponses = new ArrayList<>();
 
@@ -42,7 +42,7 @@ public class ListingStatusApi extends AlphaVantageApi {
       String assetType = line[3];
       Date ipoDate = parseDateString(line[4]);
       Date delistDate = parseDateString(line[5]);
-      Boolean status = line[6].equals("true");
+      String status = line[6];
 
       listingStatusResponse
         .setSymbol(symbol)
@@ -52,6 +52,8 @@ public class ListingStatusApi extends AlphaVantageApi {
         .setIopDate(ipoDate)
         .setDelistingDate(delistDate)
         .setStatus(status);
+
+      System.out.println(listingStatusResponse);
 
       listingStatusResponses.add(listingStatusResponse);
     }
