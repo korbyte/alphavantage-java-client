@@ -2,7 +2,7 @@ package com.korbyte.alphavantage.core;
 
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.DailyAdjustedApi;
+import com.korbyte.alphavantage.core.daily_adjusted.DailyAdjustedApi;
 import com.korbyte.alphavantage.core.daily.DailyApi;
 import com.korbyte.alphavantage.core.global_market_status.GlobalMarketStatusApi;
 import com.korbyte.alphavantage.core.monthly.MonthlyAdjustedApi;

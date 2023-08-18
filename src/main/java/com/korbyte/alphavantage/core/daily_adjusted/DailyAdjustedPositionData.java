@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.daily.models.adjusted;
+package com.korbyte.alphavantage.core.daily_adjusted;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.base.BasePositionData;
