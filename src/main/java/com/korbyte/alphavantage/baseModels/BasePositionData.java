@@ -1,11 +1,8 @@
-package com.korbyte.alphavantage.models.positiondata;
+package com.korbyte.alphavantage.baseModels;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-/**
- * Alpha Vantage API PositionData
- */
 @Data
 public abstract class BasePositionData {
   @JsonProperty(required = true, value = "1. open")
@@ -19,6 +16,4 @@ public abstract class BasePositionData {
 
   @JsonProperty(required = true, value = "4. close")
   private Float close;
-
-
 }

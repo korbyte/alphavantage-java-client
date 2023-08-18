@@ -1,10 +1,10 @@
-package com.korbyte.alphavantage.core.daily;
+package com.korbyte.alphavantage.core.weekly.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class DailyData {
+public class WeeklyPositionData {
   @JsonProperty(required = true, value = "1. open")
   private Float open;
 

@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage;
+package com.korbyte.alphavantage.params;
 
 public enum ApiFunction {
   TIME_SERIES_INTRADAY,

@@ -1,7 +1,6 @@
-package com.korbyte.alphavantage.core.daily;
+package com.korbyte.alphavantage.core.daily.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.korbyte.alphavantage.metadata.MetadataDaily;
 import lombok.Data;
 
 import java.util.Map;
@@ -9,8 +8,8 @@ import java.util.Map;
 @Data
 public class DailyResponse {
   @JsonProperty("Meta Data")
-  private MetadataDaily metaData;
+  private DailyMetadata metaData;
 
   @JsonProperty("Time Series (Daily)")
-  private Map<String, DailyData> timeSeriesDaily;
+  private Map<String, DailyPositionData> timeSeriesDaily;
 }
