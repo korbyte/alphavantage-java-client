@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage.core.daily.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.korbyte.alphavantage.baseModels.BasePositionData;
+import com.korbyte.alphavantage.base.BasePositionData;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

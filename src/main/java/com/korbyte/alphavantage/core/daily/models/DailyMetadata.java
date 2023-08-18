@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage.core.daily.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.korbyte.alphavantage.baseModels.BaseMetadata;
+import com.korbyte.alphavantage.base.BaseMetadata;
 
 public class DailyMetadata extends BaseMetadata {
   @JsonProperty(value = "4. Output Size")
