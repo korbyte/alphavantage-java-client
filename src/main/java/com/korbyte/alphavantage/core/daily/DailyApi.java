@@ -17,6 +17,13 @@ public class DailyApi extends AlphaVantageApi {
     super(config, client);
   }
 
+  /**
+   * This API returns raw (as-traded) daily time series
+   * @param params DailyParams object
+   * @return DailyResponse
+   * @throws URISyntaxException
+   * @throws IOException
+   */
   public DailyResponse get(DailyParams params) throws URISyntaxException, IOException {
     String data = this.query(params);
     return new ObjectMapper().readValue(data, DailyResponse.class);
@@ -27,8 +34,8 @@ public class DailyApi extends AlphaVantageApi {
    * (date, daily open, daily high, daily low, daily close, daily volume) of the global equity specified,
    * covering 20+ years of historical data.
    *
-   * @param params
-   * @return
+   * @param params DailyAdjustedParams object
+   * @return DailyAdjustedResponse
    * @throws URISyntaxException
    * @throws IOException
    */
