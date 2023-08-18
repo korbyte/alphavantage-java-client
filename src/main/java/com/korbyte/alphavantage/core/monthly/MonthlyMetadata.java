@@ -1,7 +1,7 @@
 package com.korbyte.alphavantage.core.monthly;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.korbyte.alphavantage.baseModels.BaseMetadata;
+import com.korbyte.alphavantage.base.BaseMetadata;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
