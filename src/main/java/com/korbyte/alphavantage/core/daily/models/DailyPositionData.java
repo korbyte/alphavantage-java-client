@@ -9,7 +9,6 @@ import lombok.EqualsAndHashCode;
 @Data
 public class DailyPositionData extends BasePositionData {
 
-
   @JsonProperty(required = true, value = "5. volume")
   private Integer volume;
 }
