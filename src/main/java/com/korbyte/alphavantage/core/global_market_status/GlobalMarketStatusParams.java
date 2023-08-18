@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.global_market_status.models;
+package com.korbyte.alphavantage.core.global_market_status;
 
 import com.korbyte.alphavantage.params.ApiFunction;
 import lombok.AccessLevel;

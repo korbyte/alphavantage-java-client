@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.global_market_status.models;
+package com.korbyte.alphavantage.core.global_market_status;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

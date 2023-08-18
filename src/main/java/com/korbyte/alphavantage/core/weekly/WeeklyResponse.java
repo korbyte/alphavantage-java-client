@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.weekly.models;
+package com.korbyte.alphavantage.core.weekly;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

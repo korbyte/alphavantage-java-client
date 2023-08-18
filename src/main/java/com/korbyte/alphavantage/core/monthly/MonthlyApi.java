@@ -3,8 +3,6 @@ package com.korbyte.alphavantage.core.monthly;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.monthly.models.MonthlyParams;
-import com.korbyte.alphavantage.core.monthly.models.MonthlyResponse;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;

@@ -1,10 +1,10 @@
-package com.korbyte.alphavantage.core.weekly;
+package com.korbyte.alphavantage.core.weekly_adjusted;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.weekly.models.adjusted.WeeklyAdjustedParams;
-import com.korbyte.alphavantage.core.weekly.models.adjusted.WeeklyAdjustedResponse;
+import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedParams;
+import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedResponse;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;

@@ -1,10 +1,8 @@
-package com.korbyte.alphavantage.core.monthly;
+package com.korbyte.alphavantage.core.monthly_adjusted;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.monthly.models.adjusted.MonthlyAdjustedParams;
-import com.korbyte.alphavantage.core.monthly.models.adjusted.MonthlyAdjustedResponse;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
