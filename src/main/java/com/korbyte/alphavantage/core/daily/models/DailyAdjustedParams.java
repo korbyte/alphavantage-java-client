@@ -6,8 +6,8 @@ import com.korbyte.alphavantage.params.OutputSize;
 import lombok.Data;
 
 @Data
-public class DailyParams {
-  private ApiFunction function = ApiFunction.TIME_SERIES_DAILY;
+public class DailyAdjustedParams {
+  private ApiFunction function = ApiFunction.TIME_SERIES_DAILY_ADJUSTED;
   private String symbol;
   private OutputSize outputSize;
   private DataType datatype;
