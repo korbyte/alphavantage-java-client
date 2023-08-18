@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.daily.models;
+package com.korbyte.alphavantage.core.daily.models.adjusted;
 
 import com.korbyte.alphavantage.params.ApiFunction;
 import com.korbyte.alphavantage.params.DataType;

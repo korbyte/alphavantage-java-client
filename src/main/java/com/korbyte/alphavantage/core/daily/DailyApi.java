@@ -3,7 +3,7 @@ package com.korbyte.alphavantage.core.daily;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.models.DailyAdjustedParams;
+import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedParams;
 import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedResponse;
 import com.korbyte.alphavantage.core.daily.models.DailyParams;
 import com.korbyte.alphavantage.core.daily.models.DailyResponse;
