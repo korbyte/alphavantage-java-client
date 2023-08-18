@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.weekly.models;
+package com.korbyte.alphavantage.core.monthly.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.baseModels.BasePositionData;
@@ -7,9 +7,9 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
 @ToString(callSuper = true)
-public class WeeklyPositionData extends BasePositionData {
+@Data
+public class MonthlyPositionData extends BasePositionData {
 
   @JsonProperty(required = true, value = "5. volume")
   private Double volume;

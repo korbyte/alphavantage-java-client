@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.weekly.models;
+package com.korbyte.alphavantage.core.monthly.models;
 
 import com.korbyte.alphavantage.params.ApiFunction;
 import com.korbyte.alphavantage.params.DataType;
@@ -8,17 +8,17 @@ import lombok.Data;
 import lombok.Setter;
 
 /**
- * AlphaVantage Weekly request params model
+ * AlphaVantage Monthly request params model
  */
 @Data
-public class WeeklyParams {
+public class MonthlyParams {
 
   /**
-   * By default, function=TIME_SERIES_WEEKLY.
+   * By default, function=TIME_SERIES_MONTHLY.
    * Does not change
    */
   @Setter(AccessLevel.NONE)
-  private ApiFunction function = ApiFunction.TIME_SERIES_WEEKLY;
+  private ApiFunction function = ApiFunction.TIME_SERIES_MONTHLY;
 
   /**
    * The name of the equity of your choice.

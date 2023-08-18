@@ -19,10 +19,10 @@ import java.util.Map;
 @Data
 public abstract class AlphaVantageApi {
 
-  @Getter(value= AccessLevel.PRIVATE)
+  @Getter(value = AccessLevel.PRIVATE)
   private final AlphaVantageConfig config;
 
-  @Getter(value=AccessLevel.PRIVATE)
+  @Getter(value = AccessLevel.PRIVATE)
   private final OkHttpClient client;
 
   public AlphaVantageApi(AlphaVantageConfig config, OkHttpClient client) {
@@ -69,6 +69,7 @@ public abstract class AlphaVantageApi {
 
   private Map<String, String> mapParameters(Object obj) {
     ObjectMapper mapper = new ObjectMapper();
-    return mapper.convertValue(obj, new TypeReference<>() {});
+    return mapper.convertValue(obj, new TypeReference<>() {
+    });
   }
 }
