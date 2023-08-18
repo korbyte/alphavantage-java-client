@@ -11,5 +11,6 @@ public enum ApiFunction {
   GLOBAL_QUOTE,
   SYMBOL_SEARCH,
   MARKET_STATUS,
+  OVERVIEW,
   LISTING_STATUS
 }
