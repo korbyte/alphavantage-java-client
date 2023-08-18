@@ -21,8 +21,7 @@ public class ListingStatusApi extends AlphaVantageApi {
   }
 
   public List<ListingStatusResponse> get(ListingStatusParams params)
-    throws URISyntaxException, IOException, CsvValidationException
-  {
+    throws URISyntaxException, IOException, CsvValidationException {
     String data = this.query(params);
     return parseCSV(data);
   }
@@ -62,7 +61,8 @@ public class ListingStatusApi extends AlphaVantageApi {
     Date date = null;
     try {
       date = sdf.parse(dateString);
-    } catch (ParseException ignored) {}
+    } catch (ParseException ignored) {
+    }
     return date;
   }
 }

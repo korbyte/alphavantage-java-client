@@ -22,6 +22,7 @@ public class WeeklyApi extends AlphaVantageApi {
 
   /**
    * Get weekly time series
+   *
    * @param params WeeklyParams
    * @return WeeklyResponse
    * @throws URISyntaxException
@@ -34,6 +35,7 @@ public class WeeklyApi extends AlphaVantageApi {
 
   /**
    * Get weekly adjusted time series
+   *
    * @param params WeeklyAdjustedParams
    * @return WeeklyAdjustedResponse
    * @throws URISyntaxException

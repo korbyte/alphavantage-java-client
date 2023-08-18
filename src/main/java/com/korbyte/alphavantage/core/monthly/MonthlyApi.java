@@ -22,6 +22,7 @@ public class MonthlyApi extends AlphaVantageApi {
 
   /**
    * Get Monthly time series
+   *
    * @param params MonthlyParams
    * @return MonthlyResponse
    * @throws URISyntaxException
@@ -34,6 +35,7 @@ public class MonthlyApi extends AlphaVantageApi {
 
   /**
    * Get Monthly adjusted time series
+   *
    * @param params MonthlyAdjustedParams
    * @return MonthlyAdjustedResponse
    * @throws URISyntaxException

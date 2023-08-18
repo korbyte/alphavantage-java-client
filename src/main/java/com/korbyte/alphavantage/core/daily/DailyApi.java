@@ -3,10 +3,10 @@ package com.korbyte.alphavantage.core.daily;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedParams;
-import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedResponse;
 import com.korbyte.alphavantage.core.daily.models.DailyParams;
 import com.korbyte.alphavantage.core.daily.models.DailyResponse;
+import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedParams;
+import com.korbyte.alphavantage.core.daily.models.adjusted.DailyAdjustedResponse;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -26,6 +26,7 @@ public class DailyApi extends AlphaVantageApi {
    * This API returns raw (as-traded) daily time series
    * (date, daily open, daily high, daily low, daily close, daily volume) of the global equity specified,
    * covering 20+ years of historical data.
+   *
    * @param params
    * @return
    * @throws URISyntaxException
