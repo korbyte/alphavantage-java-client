@@ -6,11 +6,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.math.BigInteger;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
 public class WeeklyPositionData extends BasePositionData {
 
   @JsonProperty(required = true, value = "5. volume")
-  private Integer volume;
+  private BigInteger volume;
 }

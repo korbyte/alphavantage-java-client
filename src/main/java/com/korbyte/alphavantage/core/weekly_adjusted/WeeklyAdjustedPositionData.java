@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import java.math.BigInteger;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
@@ -14,7 +16,7 @@ public class WeeklyAdjustedPositionData extends BasePositionData {
   private Float adjustedClose;
 
   @JsonProperty(required = true, value = "6. volume")
-  private Integer volume;
+  private BigInteger volume;
 
   @JsonProperty(required = true, value = "7. dividend amount")
   private Float dividendAmount;

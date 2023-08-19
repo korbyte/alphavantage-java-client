@@ -5,6 +5,8 @@ import com.korbyte.alphavantage.base.BasePositionData;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.math.BigInteger;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class MonthlyAdjustedPositionData extends BasePositionData {
@@ -12,7 +14,7 @@ public class MonthlyAdjustedPositionData extends BasePositionData {
   private Float adjustedClose;
 
   @JsonProperty(required = true, value = "6. volume")
-  private Integer volume;
+  private BigInteger volume;
 
   @JsonProperty(required = true, value = "7. dividend amount")
   private Float dividendAmount;
