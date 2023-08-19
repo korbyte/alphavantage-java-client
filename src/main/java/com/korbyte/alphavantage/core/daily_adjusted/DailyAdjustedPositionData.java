@@ -14,7 +14,7 @@ public class DailyAdjustedPositionData extends BasePositionData {
   private Float adjustedClose;
 
   @JsonProperty(required = true, value = "6. volume")
-  private Double volume;
+  private Integer volume;
 
   @JsonProperty(required = true, value = "7. dividend amount")
   private Float dividendAmount;

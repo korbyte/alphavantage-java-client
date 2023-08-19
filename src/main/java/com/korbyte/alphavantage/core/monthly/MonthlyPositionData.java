@@ -12,5 +12,5 @@ import lombok.ToString;
 public class MonthlyPositionData extends BasePositionData {
 
   @JsonProperty(required = true, value = "5. volume")
-  private Double volume;
+  private Integer volume;
 }
