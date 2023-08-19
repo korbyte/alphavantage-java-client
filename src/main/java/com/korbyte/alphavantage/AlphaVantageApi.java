@@ -34,7 +34,6 @@ public abstract class AlphaVantageApi {
     Map<String, String> mappedParameters = mapParameters(parameters);
     injectApiKey(mappedParameters);
     URI uri = buildFullURI(mappedParameters);
-    System.out.println(uri); //TODO remove this
     return request(uri);
   }
 
@@ -63,7 +62,10 @@ public abstract class AlphaVantageApi {
     builder.setHost(this.config.getHost());
     builder.setPath(this.config.getPath());
     for (String key : paramsList.keySet()) {
-      builder.addParameter(key, paramsList.get(key));
+      String param = paramsList.get(key);
+      if (param != null && !param.isEmpty()) {
+        builder.addParameter(key, paramsList.get(key));
+      }
     }
     return builder.build();
   }
