@@ -26,9 +26,9 @@ public class DailyParams {
   private String symbol;
 
   /**
-   * By default, outputsize=compact.
+   * The generic number of elements to output
    */
-  private OutputSize outputSize;
+  private OutputSize outputsize;
 
   /**
    * JSON or CSV.

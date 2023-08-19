@@ -34,6 +34,7 @@ public abstract class AlphaVantageApi {
     Map<String, String> mappedParameters = mapParameters(parameters);
     injectApiKey(mappedParameters);
     URI uri = buildFullURI(mappedParameters);
+    System.out.println(uri); //TODO remove this
     return request(uri);
   }
 
