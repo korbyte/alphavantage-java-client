@@ -1,6 +1,8 @@
 package com.korbyte.alphavantage.params;
 
-enum IntervalType {
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum IntervalType {
   ONE_MIN("1min"),
   FIVE_MIN("5min"),
   FIFTEEN_MIN("15min"),
@@ -13,6 +15,7 @@ enum IntervalType {
     this.interval = interval;
   }
 
+  @JsonValue
   @Override
   public String toString() {
     return interval;

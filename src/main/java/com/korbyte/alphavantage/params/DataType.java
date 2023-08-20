@@ -1,5 +1,7 @@
 package com.korbyte.alphavantage.params;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum DataType {
   JSON("json"),
   CSV("csv");
@@ -10,6 +12,7 @@ public enum DataType {
     this.dataType = dataType;
   }
 
+  @JsonValue
   @Override
   public String toString() {
     return dataType;

@@ -1,5 +1,7 @@
 package com.korbyte.alphavantage.params;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum OutputSize {
   COMPACT("compact"),
   FULL("full");
@@ -10,6 +12,7 @@ public enum OutputSize {
     this.outputSize = outputSize;
   }
 
+  @JsonValue
   @Override
   public String toString() {
     return outputSize;
