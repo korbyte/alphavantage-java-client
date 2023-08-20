@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.params;
+package com.korbyte.alphavantage.types;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -14,7 +14,8 @@ public enum ApiFunction {
   SYMBOL_SEARCH("SYMBOL_SEARCH"),
   MARKET_STATUS("MARKET_STATUS"),
   COMPANY_OVERVIEW("OVERVIEW"),
-  LISTING_STATUS("LISTING_STATUS");
+  LISTING_STATUS("LISTING_STATUS"),
+  GDP("REAL_GDP");
 
   private final String function;
 

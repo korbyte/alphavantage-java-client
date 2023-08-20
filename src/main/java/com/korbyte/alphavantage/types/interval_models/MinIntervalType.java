@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.params;
+package com.korbyte.alphavantage.types.interval_models;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
