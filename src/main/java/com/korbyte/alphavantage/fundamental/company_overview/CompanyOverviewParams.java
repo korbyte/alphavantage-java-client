@@ -1,6 +1,6 @@
 package com.korbyte.alphavantage.fundamental.company_overview;
 
-import com.korbyte.alphavantage.params.ApiFunction;
+import com.korbyte.alphavantage.types.ApiFunction;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;

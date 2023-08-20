@@ -1,6 +1,6 @@
 package com.korbyte.alphavantage.fundamental.listing_status;
 
-import com.korbyte.alphavantage.params.ApiFunction;
+import com.korbyte.alphavantage.types.ApiFunction;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
