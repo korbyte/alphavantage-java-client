@@ -1,8 +1,8 @@
 package com.korbyte.alphavantage.core.intraday;
 
-import com.korbyte.alphavantage.params.ApiFunction;
-import com.korbyte.alphavantage.params.OutputSize;
-import com.korbyte.alphavantage.params.MinIntervalType;
+import com.korbyte.alphavantage.types.ApiFunction;
+import com.korbyte.alphavantage.types.OutputSize;
+import com.korbyte.alphavantage.types.interval_models.MinIntervalType;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;

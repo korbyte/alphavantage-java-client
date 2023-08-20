@@ -1,8 +1,7 @@
 package com.korbyte.alphavantage.core.monthly;
 
-import com.korbyte.alphavantage.params.ApiFunction;
-import com.korbyte.alphavantage.params.DataType;
-import com.korbyte.alphavantage.params.OutputSize;
+import com.korbyte.alphavantage.types.ApiFunction;
+import com.korbyte.alphavantage.types.OutputSize;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
