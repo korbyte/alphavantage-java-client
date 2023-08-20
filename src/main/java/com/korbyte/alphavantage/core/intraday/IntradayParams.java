@@ -3,18 +3,15 @@ package com.korbyte.alphavantage.core.intraday;
 import com.korbyte.alphavantage.params.ApiFunction;
 import com.korbyte.alphavantage.params.DataType;
 import com.korbyte.alphavantage.params.OutputSize;
-import lombok.AccessLevel;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 public class IntradayParams {
 
-  @Setter(AccessLevel.NONE)
   private ApiFunction function = ApiFunction.TIME_SERIES_INTRADAY;
 
-  /**
-   * The name of the equity of your choice.
-   * For example, symbol=MSFT
-   */
+  private String apikey;
+
   private String symbol;
 
   private String interval;
@@ -28,6 +25,4 @@ public class IntradayParams {
   private OutputSize outputsize;
 
   private DataType datatype;
-
-  private String apikey;
 }
