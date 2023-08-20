@@ -9,6 +9,10 @@ import okhttp3.OkHttpClient;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+/**
+ * GDP per capita is a measure of country's gross domestic product by person.
+ * @see <a href="https://www.alphavantage.co/documentation/#real-gdp-per-capita">AlphaVantage Documentation</a>
+ */
 public class GdpPerCapitaApi extends AlphaVantageApi {
 
   public GdpPerCapitaApi(AlphaVantageConfig config, OkHttpClient client) {
