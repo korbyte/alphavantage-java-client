@@ -15,7 +15,8 @@ public enum ApiFunction {
   MARKET_STATUS("MARKET_STATUS"),
   COMPANY_OVERVIEW("OVERVIEW"),
   LISTING_STATUS("LISTING_STATUS"),
-  GDP("REAL_GDP");
+  GDP("REAL_GDP"),
+  GDP_PER_CAPITA("REAL_GDP_PER_CAPITA");
 
   private final String function;
 
