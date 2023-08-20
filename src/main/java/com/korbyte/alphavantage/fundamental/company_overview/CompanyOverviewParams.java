@@ -12,7 +12,7 @@ public class CompanyOverviewParams {
    * Does not change
    */
   @Setter(AccessLevel.NONE)
-  private ApiFunction function = ApiFunction.OVERVIEW;
+  private ApiFunction function = ApiFunction.COMPANY_OVERVIEW;
 
   /**
    * The name of the equity of your choice.
