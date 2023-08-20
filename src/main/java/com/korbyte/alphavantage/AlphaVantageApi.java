@@ -16,6 +16,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
+/**
+ * Alpha Vantage API
+ */
 @Data
 public abstract class AlphaVantageApi {
 
@@ -24,6 +27,8 @@ public abstract class AlphaVantageApi {
 
   @Getter(value = AccessLevel.PRIVATE)
   private final OkHttpClient client;
+
+  private static final ObjectMapper MAPPER = new ObjectMapper();
 
   public AlphaVantageApi(AlphaVantageConfig config, OkHttpClient client) {
     this.config = config;
@@ -41,19 +46,15 @@ public abstract class AlphaVantageApi {
     Request request = new Request.Builder()
       .url(uri.toString())
       .build();
-    String data = null;
+
     try (Response response = this.client.newCall(request).execute()) {
       ResponseBody body = response.body();
-      if (body != null) {
-        data = body.string();
-      }
+      return body != null ? body.string() : null;
     }
-    return data;
   }
 
   private void injectApiKey(Map<String, String> mappedParameters) {
-    String apikey = mappedParameters.get("apikey");
-    if (apikey == null || apikey.isEmpty()) mappedParameters.put("apikey", this.config.getApiKey());
+    mappedParameters.putIfAbsent("apikey", this.config.getApiKey());
   }
 
   private URI buildFullURI(Map<String, String> paramsList) throws URISyntaxException {
@@ -61,18 +62,18 @@ public abstract class AlphaVantageApi {
     builder.setScheme(this.config.getProtocol());
     builder.setHost(this.config.getHost());
     builder.setPath(this.config.getPath());
-    for (String key : paramsList.keySet()) {
-      String param = paramsList.get(key);
+
+    for (Map.Entry<String, String> entry : paramsList.entrySet()) {
+      String param = entry.getValue();
       if (param != null && !param.isEmpty()) {
-        builder.addParameter(key, paramsList.get(key));
+        builder.addParameter(entry.getKey(), param);
       }
     }
+
     return builder.build();
   }
 
   private Map<String, String> mapParameters(Object obj) {
-    ObjectMapper mapper = new ObjectMapper();
-    return mapper.convertValue(obj, new TypeReference<>() {
-    });
+    return MAPPER.convertValue(obj, new TypeReference<>() {});
   }
 }
