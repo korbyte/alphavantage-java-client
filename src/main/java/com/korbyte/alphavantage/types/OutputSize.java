@@ -6,15 +6,15 @@ public enum OutputSize {
   COMPACT("compact"),
   FULL("full");
 
-  private final String outputSize;
+  private final String outputsize;
 
-  OutputSize(String outputSize) {
-    this.outputSize = outputSize;
+  OutputSize(String outputsize) {
+    this.outputsize = outputsize;
   }
 
   @JsonValue
   @Override
   public String toString() {
-    return outputSize;
+    return outputsize;
   }
 }

@@ -28,5 +28,5 @@ public class MonthlyParams {
   /**
    * By default, outputsize=compact.
    */
-  private OutputSize outputSize;
+  private OutputSize outputsize;
 }

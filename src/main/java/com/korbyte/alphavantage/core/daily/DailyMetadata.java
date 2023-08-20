@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class DailyMetadata extends BaseMetadata {
   @JsonProperty(value = "4. Output Size")
-  private String outputSize;
+  private String outputsize;
 
   @JsonProperty(value = "5. Time Zone")
   private String timeZone;

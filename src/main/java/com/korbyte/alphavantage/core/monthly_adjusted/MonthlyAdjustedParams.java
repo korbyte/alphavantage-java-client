@@ -27,5 +27,5 @@ public class MonthlyAdjustedParams {
   /**
    * By default, outputsize=compact.
    */
-  private OutputSize outputSize;
+  private OutputSize outputsize;
 }

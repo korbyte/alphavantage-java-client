@@ -27,5 +27,5 @@ public class WeeklyAdjustedParams {
   /**
    * By default, outputsize=compact.
    */
-  private OutputSize outputSize;
+  private OutputSize outputsize;
 }
