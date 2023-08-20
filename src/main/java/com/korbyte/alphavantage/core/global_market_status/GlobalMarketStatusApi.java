@@ -18,8 +18,6 @@ public class GlobalMarketStatusApi extends AlphaVantageApi {
    *
    * @param params GlobalMarketStatusParams object
    * @return GlobalMarketStatusResponse
-   * @throws URISyntaxException
-   * @throws IOException
    */
   public GlobalMarketStatusResponse get(GlobalMarketStatusParams params) throws URISyntaxException, IOException {
     String data = this.query(params);

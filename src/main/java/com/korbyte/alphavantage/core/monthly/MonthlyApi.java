@@ -21,8 +21,6 @@ public class MonthlyApi extends AlphaVantageApi {
    *
    * @param params MonthlyParams
    * @return MonthlyResponse
-   * @throws URISyntaxException
-   * @throws IOException
    */
   public MonthlyResponse get(MonthlyParams params) throws URISyntaxException, IOException {
     String data = this.query(params);

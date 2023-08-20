@@ -18,8 +18,6 @@ public class DailyAdjustedApi extends AlphaVantageApi {
    *
    * @param params DailyParams object
    * @return DailyResponse
-   * @throws URISyntaxException
-   * @throws IOException
    */
   public DailyAdjustedResponse get(DailyAdjustedParams params) throws URISyntaxException, IOException {
     String data = this.query(params);

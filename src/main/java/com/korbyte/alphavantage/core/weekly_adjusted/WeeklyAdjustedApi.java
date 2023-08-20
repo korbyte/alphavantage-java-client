@@ -23,8 +23,6 @@ public class WeeklyAdjustedApi extends AlphaVantageApi {
    *
    * @param params WeeklyParams
    * @return WeeklyResponse
-   * @throws URISyntaxException
-   * @throws IOException
    */
   public WeeklyAdjustedResponse get(WeeklyAdjustedParams params) throws URISyntaxException, IOException {
     String data = this.query(params);
