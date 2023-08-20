@@ -23,6 +23,4 @@ public class IntradayParams {
   private String month;
 
   private OutputSize outputsize;
-
-  private DataType datatype;
 }

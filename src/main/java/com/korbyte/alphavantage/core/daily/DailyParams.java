@@ -29,10 +29,4 @@ public class DailyParams {
    * The generic number of elements to output
    */
   private OutputSize outputsize;
-
-  /**
-   * JSON or CSV.
-   * By default, datatype=json.
-   */
-  private DataType datatype;
 }

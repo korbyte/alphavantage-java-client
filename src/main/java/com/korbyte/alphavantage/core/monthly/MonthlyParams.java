@@ -30,10 +30,4 @@ public class MonthlyParams {
    * By default, outputsize=compact.
    */
   private OutputSize outputSize;
-
-  /**
-   * JSON or CSV.
-   * By default, datatype=json.
-   */
-  private DataType datatype;
 }
