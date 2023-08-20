@@ -5,6 +5,7 @@ import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.core.daily_adjusted.DailyAdjustedApi;
 import com.korbyte.alphavantage.core.daily.DailyApi;
 import com.korbyte.alphavantage.core.global_market_status.GlobalMarketStatusApi;
+import com.korbyte.alphavantage.core.intraday.IntradayApi;
 import com.korbyte.alphavantage.core.monthly_adjusted.MonthlyAdjustedApi;
 import com.korbyte.alphavantage.core.monthly.MonthlyApi;
 import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedApi;
@@ -17,6 +18,7 @@ import okhttp3.OkHttpClient;
 @Accessors(fluent = true, chain = true)
 public class CoreApi extends AlphaVantageApi {
 
+  private final IntradayApi intraday;
   private final DailyApi daily;
   private final DailyAdjustedApi dailyAdjusted;
   private final WeeklyApi weekly;
@@ -27,6 +29,7 @@ public class CoreApi extends AlphaVantageApi {
 
   public CoreApi(AlphaVantageConfig config, OkHttpClient client) {
     super(config, client);
+    this.intraday = new IntradayApi(config, client);
     this.daily = new DailyApi(config, client);
     this.dailyAdjusted = new DailyAdjustedApi(config, client);
     this.weekly = new WeeklyApi(config, client);
