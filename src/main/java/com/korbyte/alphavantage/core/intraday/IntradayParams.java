@@ -1,9 +1,8 @@
 package com.korbyte.alphavantage.core.intraday;
 
 import com.korbyte.alphavantage.params.ApiFunction;
-import com.korbyte.alphavantage.params.DataType;
 import com.korbyte.alphavantage.params.OutputSize;
-import com.korbyte.alphavantage.params.IntervalType;
+import com.korbyte.alphavantage.params.MinIntervalType;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
@@ -22,7 +21,7 @@ public class IntradayParams {
 
   private String symbol;
 
-  private IntervalType interval;
+  private MinIntervalType interval;
 
   private boolean adjusted;
 
