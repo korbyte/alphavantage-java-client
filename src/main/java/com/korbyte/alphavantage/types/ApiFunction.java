@@ -1,5 +1,6 @@
 package com.korbyte.alphavantage.types;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ApiFunction {
@@ -34,5 +35,19 @@ public enum ApiFunction {
   @Override
   public String toString() {
     return function;
+  }
+
+  /**
+   * Deserialization: Convert a given string to the corresponding enum value
+   * @param value The string to convert
+   */
+  @JsonCreator
+  public static ApiFunction fromString(String value) {
+    for (ApiFunction os : ApiFunction.values()) {
+      if (os.function.equalsIgnoreCase(value)) {
+        return os;
+      }
+    }
+    throw new IllegalArgumentException("Cannot deserialize value of type ApiFunction from string: " + value);
   }
 }
