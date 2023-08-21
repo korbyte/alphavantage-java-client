@@ -5,6 +5,7 @@ import com.korbyte.alphavantage.core.daily.models.DailyMetadata;
 import com.korbyte.alphavantage.core.weekly_adjusted.models.WeeklyAdjustedPositionData;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.Map;
 
 @Data
@@ -13,5 +14,5 @@ public class WeeklyAdjustedResponse {
   private DailyMetadata metaData;
 
   @JsonProperty("Weekly Adjusted Time Series")
-  private Map<String, WeeklyAdjustedPositionData> timeSeriesAdjustedWeekly;
+  private Map<Date, WeeklyAdjustedPositionData> timeSeriesAdjustedWeekly;
 }

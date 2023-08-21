@@ -1,5 +1,6 @@
 package com.korbyte.alphavantage.core.monthly;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.types.ApiFunction;
 import com.korbyte.alphavantage.types.OutputSize;
 import lombok.AccessLevel;
@@ -28,5 +29,6 @@ public class MonthlyParams {
   /**
    * By default, outputsize=compact.
    */
-  private OutputSize outputsize;
+  @JsonProperty(value = "outputsize")
+  private OutputSize outputSize;
 }

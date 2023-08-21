@@ -5,6 +5,7 @@ import com.korbyte.alphavantage.core.monthly.models.MonthlyMetadata;
 import com.korbyte.alphavantage.core.monthly.models.MonthlyPositionData;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -16,5 +17,5 @@ public class MonthlyResponse {
   private MonthlyMetadata metaData;
 
   @JsonProperty("Monthly Time Series")
-  private Map<String, MonthlyPositionData> timeSeriesMonthly;
+  private Map<Date, MonthlyPositionData> timeSeriesMonthly;
 }

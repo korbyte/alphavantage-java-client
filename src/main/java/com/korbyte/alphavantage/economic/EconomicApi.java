@@ -8,6 +8,10 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 import okhttp3.OkHttpClient;
 
+/**
+ * Economic API
+ * @see <a href="https://www.alphavantage.co/documentation/#economic-indicators">Economic Indicators</a>
+ */
 @Getter
 @Accessors(fluent = true, chain = true)
 public class EconomicApi extends AlphaVantageApi {

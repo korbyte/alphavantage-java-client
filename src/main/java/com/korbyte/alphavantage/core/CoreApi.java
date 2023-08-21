@@ -14,6 +14,9 @@ import lombok.Getter;
 import lombok.experimental.Accessors;
 import okhttp3.OkHttpClient;
 
+/**
+ * Core API
+ */
 @Getter
 @Accessors(fluent = true, chain = true)
 public class CoreApi extends AlphaVantageApi {

@@ -3,6 +3,8 @@ package com.korbyte.alphavantage.base;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * Alpha Vantage API BaseMetadata
  */
@@ -16,5 +18,5 @@ public abstract class BaseMetadata {
   private String symbol;
 
   @JsonProperty(value = "3. Last Refreshed")
-  private String lastRefreshed;
+  private Date lastRefreshed;
 }

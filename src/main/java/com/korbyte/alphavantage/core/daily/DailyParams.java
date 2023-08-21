@@ -1,5 +1,6 @@
 package com.korbyte.alphavantage.core.daily;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.types.ApiFunction;
 import com.korbyte.alphavantage.types.OutputSize;
 import lombok.AccessLevel;
@@ -27,5 +28,6 @@ public class DailyParams {
   /**
    * The generic number of elements to output
    */
-  private OutputSize outputsize;
+  @JsonProperty(value = "outputsize")
+  private OutputSize outputSize;
 }

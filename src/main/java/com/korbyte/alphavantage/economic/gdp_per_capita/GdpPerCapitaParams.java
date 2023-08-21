@@ -14,6 +14,4 @@ import lombok.Setter;
 public class GdpPerCapitaParams {
   @Setter(AccessLevel.NONE)
   private ApiFunction function = ApiFunction.GDP_PER_CAPITA;
-
-  private YearIntervalType intervalType;
 }

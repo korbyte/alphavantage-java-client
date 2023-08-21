@@ -5,6 +5,7 @@ import com.korbyte.alphavantage.core.daily.models.DailyMetadata;
 import com.korbyte.alphavantage.core.daily.models.DailyPositionData;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.Map;
 
 @Data
@@ -13,5 +14,5 @@ public class DailyResponse {
   private DailyMetadata metaData;
 
   @JsonProperty("Time Series (Daily)")
-  private Map<String, DailyPositionData> timeSeriesDaily;
+  private Map<Date, DailyPositionData> timeSeriesDaily;
 }

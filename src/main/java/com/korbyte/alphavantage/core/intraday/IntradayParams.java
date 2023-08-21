@@ -1,5 +1,6 @@
 package com.korbyte.alphavantage.core.intraday;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.types.ApiFunction;
 import com.korbyte.alphavantage.types.OutputSize;
 import com.korbyte.alphavantage.types.interval_models.MinIntervalType;
@@ -29,5 +30,6 @@ public class IntradayParams {
 
   private String month;
 
-  private OutputSize outputsize;
+  @JsonProperty(value = "outputsize")
+  private OutputSize outputSize;
 }
