@@ -1,6 +1,7 @@
 package com.korbyte.alphavantage.technical.rsi;
 
-import com.korbyte.alphavantage.technical.rsi.models.RsiIntervals;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.korbyte.alphavantage.technical.rsi.models.RsiInterval;
 import com.korbyte.alphavantage.types.ApiFunction;
 import com.korbyte.alphavantage.types.SeriesType;
 import lombok.AccessLevel;
@@ -30,7 +31,7 @@ public class RsiParams {
    * Time interval between two consecutive data points in the time series.
    * The following values are supported: 1min, 5min, 15min, 30min, 60min, daily, weekly, monthly
    */
-  private RsiIntervals interval;
+  private RsiInterval interval;
 
   /**
    * Note:
@@ -51,10 +52,12 @@ public class RsiParams {
    * Number of data points used to calculate each RSI value. Positive integers are accepted (e.g., time_period=60, time_period=200)
    * required
    */
+  @JsonProperty("time_period")
   private Integer timePeriod;
 
   /**
    * The desired price type in the time series. Four types are supported: close, open, high, low
    */
+  @JsonProperty("series_type")
   private SeriesType seriesType;
 }
