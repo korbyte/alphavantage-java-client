@@ -2,7 +2,7 @@ package com.korbyte.alphavantage.technical.rsi.models;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum RsiIntervals {
+public enum RsiInterval {
 
   ONE_MIN("1min"),
   FIVE_MIN("5min"),
@@ -15,7 +15,7 @@ public enum RsiIntervals {
 
   private final String intervalType;
 
-  RsiIntervals(String intervalType) {
+  RsiInterval(String intervalType) {
     this.intervalType = intervalType;
   }
 
