@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.types;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ApiFunction {
+  // Stock Time Series
   TIME_SERIES_INTRADAY("TIME_SERIES_INTRADAY"),
   TIME_SERIES_DAILY("TIME_SERIES_DAILY"),
   TIME_SERIES_DAILY_ADJUSTED("TIME_SERIES_DAILY_ADJUSTED"),
@@ -15,8 +16,13 @@ public enum ApiFunction {
   MARKET_STATUS("MARKET_STATUS"),
   COMPANY_OVERVIEW("OVERVIEW"),
   LISTING_STATUS("LISTING_STATUS"),
+
+  // Economic Indicators
   GDP("REAL_GDP"),
-  GDP_PER_CAPITA("REAL_GDP_PER_CAPITA");
+  GDP_PER_CAPITA("REAL_GDP_PER_CAPITA"),
+
+  // Technical Indicators
+  RSI("RSI");
 
   private final String function;
 
