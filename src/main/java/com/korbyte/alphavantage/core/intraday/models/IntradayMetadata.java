@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.intraday;
+package com.korbyte.alphavantage.core.intraday.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.base.BaseMetadata;

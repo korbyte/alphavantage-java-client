@@ -2,6 +2,8 @@ package com.korbyte.alphavantage.core.intraday;
 
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.korbyte.alphavantage.core.intraday.models.IntradayMetadata;
+import com.korbyte.alphavantage.core.intraday.models.IntradayPositionData;
 import lombok.Data;
 
 import java.util.Map;

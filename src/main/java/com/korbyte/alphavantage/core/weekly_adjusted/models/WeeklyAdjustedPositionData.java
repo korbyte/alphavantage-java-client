@@ -1,4 +1,4 @@
-package com.korbyte.alphavantage.core.monthly_adjusted;
+package com.korbyte.alphavantage.core.weekly_adjusted.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.base.BasePositionData;
@@ -11,7 +11,7 @@ import java.math.BigInteger;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
-public class MonthlyAdjustedPositionData extends BasePositionData {
+public class WeeklyAdjustedPositionData extends BasePositionData {
   @JsonProperty(required = true, value = "5. adjusted close")
   private Float adjustedClose;
 

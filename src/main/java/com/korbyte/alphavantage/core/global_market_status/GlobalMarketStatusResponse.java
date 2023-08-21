@@ -1,6 +1,7 @@
 package com.korbyte.alphavantage.core.global_market_status;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.korbyte.alphavantage.core.global_market_status.models.MarketData;
 import lombok.Data;
 
 import java.util.List;
