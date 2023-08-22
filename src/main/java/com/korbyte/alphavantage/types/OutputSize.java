@@ -25,11 +25,13 @@ public enum OutputSize {
    */
   @JsonCreator
   public static OutputSize fromString(String value) {
-    for (OutputSize os : OutputSize.values()) {
-      if (os.outputSize.equalsIgnoreCase(value)) {
-        return os;
-      }
+    value = value.toLowerCase();
+    if(value.contains("compact")) {
+      return COMPACT;
+    } else if(value.contains("full")) {
+      return FULL;
+    } else {
+      throw new IllegalArgumentException("Cannot deserialize value of type OutputSize from string: " + value);
     }
-    throw new IllegalArgumentException("Cannot deserialize value of type OutputSize from string: " + value);
   }
 }
