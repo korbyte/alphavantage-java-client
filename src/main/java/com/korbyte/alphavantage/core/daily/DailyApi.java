@@ -1,8 +1,8 @@
 package com.korbyte.alphavantage.core.daily;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseError;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -29,8 +29,8 @@ public class DailyApi extends AlphaVantageApi {
    * @param params DailyParams object
    * @return DailyResponse
    */
-  public DailyResponse get(DailyParams params) throws URISyntaxException, IOException {
+  public DailyResponse get(DailyParams params) throws URISyntaxException, IOException, ApiResponseError {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, DailyResponse.class);
+    return parseResponse(data, DailyResponse.class);
   }
 }
