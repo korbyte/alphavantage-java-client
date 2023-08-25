@@ -2,7 +2,6 @@ package com.korbyte.alphavantage.technical.rsi.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.korbyte.alphavantage.types.interval_models.IntervalType;
 
 public enum RsiInterval {
 

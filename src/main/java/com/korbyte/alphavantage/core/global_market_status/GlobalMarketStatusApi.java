@@ -1,6 +1,5 @@
 package com.korbyte.alphavantage.core.global_market_status;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.error.ApiResponseException;

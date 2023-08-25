@@ -1,7 +1,6 @@
 package com.korbyte.alphavantage.economic.gdp_per_capita;
 
 import com.korbyte.alphavantage.types.ApiFunction;
-import com.korbyte.alphavantage.types.interval_models.YearIntervalType;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;

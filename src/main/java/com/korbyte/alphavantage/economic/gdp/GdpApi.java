@@ -1,6 +1,5 @@
 package com.korbyte.alphavantage.economic.gdp;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.error.ApiResponseException;
@@ -23,8 +22,9 @@ public class GdpApi extends AlphaVantageApi {
    * Get GDP data
    * @param params The parameters for the GDP data request
    * @return GDP data
-   * @throws URISyntaxException
-   * @throws IOException
+   * @throws URISyntaxException URL is invalid
+   * @throws IOException Network error
+   * @throws ApiResponseException API response error
    */
   public GdpResponse get(GdpParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);

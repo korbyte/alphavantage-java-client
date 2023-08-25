@@ -1,9 +1,7 @@
 package com.korbyte.alphavantage.core.daily_adjusted;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily.DailyResponse;
 import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 

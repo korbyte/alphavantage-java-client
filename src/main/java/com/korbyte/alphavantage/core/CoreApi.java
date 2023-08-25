@@ -2,14 +2,14 @@ package com.korbyte.alphavantage.core;
 
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.core.daily_adjusted.DailyAdjustedApi;
 import com.korbyte.alphavantage.core.daily.DailyApi;
+import com.korbyte.alphavantage.core.daily_adjusted.DailyAdjustedApi;
 import com.korbyte.alphavantage.core.global_market_status.GlobalMarketStatusApi;
 import com.korbyte.alphavantage.core.intraday.IntradayApi;
-import com.korbyte.alphavantage.core.monthly_adjusted.MonthlyAdjustedApi;
 import com.korbyte.alphavantage.core.monthly.MonthlyApi;
-import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedApi;
+import com.korbyte.alphavantage.core.monthly_adjusted.MonthlyAdjustedApi;
 import com.korbyte.alphavantage.core.weekly.WeeklyApi;
+import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedApi;
 import lombok.Getter;
 import lombok.experimental.Accessors;
 import okhttp3.OkHttpClient;

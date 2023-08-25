@@ -1,6 +1,5 @@
 package com.korbyte.alphavantage.core.intraday;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.error.ApiResponseException;

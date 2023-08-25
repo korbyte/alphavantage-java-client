@@ -1,6 +1,5 @@
 package com.korbyte.alphavantage.economic.gdp_per_capita;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.economic.gdp.GdpResponse;
