@@ -35,6 +35,13 @@ public abstract class AlphaVantageApi {
     this.client = client;
   }
 
+  /**
+   * Query Alpha Vantage API into string response
+   * @param parameters Object
+   * @return String
+   * @throws URISyntaxException
+   * @throws IOException
+   */
   public String query(Object parameters) throws URISyntaxException, IOException {
     Map<String, String> mappedParameters = mapParameters(parameters);
     injectApiKey(mappedParameters);
