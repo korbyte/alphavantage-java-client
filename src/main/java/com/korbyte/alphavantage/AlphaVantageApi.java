@@ -1,7 +1,11 @@
 package com.korbyte.alphavantage;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.korbyte.alphavantage.base.ApiResponse;
+import com.korbyte.alphavantage.error.ApiResponseError;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -83,4 +87,19 @@ public abstract class AlphaVantageApi {
   private Map<String, String> mapParameters(Object obj) {
     return MAPPER.convertValue(obj, new TypeReference<>() {});
   }
+
+
+  protected <T> T parseResponse(String rawResponse, Class<T> tClass) throws JsonProcessingException, ApiResponseError {
+    ObjectMapper objectMapper = new ObjectMapper();
+    objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+    ApiResponse<T> apiResponse = objectMapper.readValue(rawResponse, objectMapper.getTypeFactory().constructParametricType(ApiResponse.class, tClass));
+
+    if (apiResponse.getError() != null) {
+      throw new ApiResponseError(apiResponse.getError());
+    } else {
+      return apiResponse.getData();
+    }
+  }
+
 }
