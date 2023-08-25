@@ -42,8 +42,8 @@ public abstract class AlphaVantageApi {
    * Query Alpha Vantage API into string response
    * @param parameters Object
    * @return String
-   * @throws URISyntaxException
-   * @throws IOException
+   * @throws URISyntaxException URL is invalid
+   * @throws IOException Network error
    */
   public String query(Object parameters) throws URISyntaxException, IOException {
     Map<String, String> mappedParameters = mapParameters(parameters);
