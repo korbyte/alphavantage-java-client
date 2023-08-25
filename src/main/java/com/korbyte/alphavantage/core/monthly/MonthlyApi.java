@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.core.monthly;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -22,8 +23,8 @@ public class MonthlyApi extends AlphaVantageApi {
    * @param params MonthlyParams
    * @return MonthlyResponse
    */
-  public MonthlyResponse get(MonthlyParams params) throws URISyntaxException, IOException {
+  public MonthlyResponse get(MonthlyParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, MonthlyResponse.class);
+    return this.parseResponse(data, MonthlyResponse.class);
   }
 }

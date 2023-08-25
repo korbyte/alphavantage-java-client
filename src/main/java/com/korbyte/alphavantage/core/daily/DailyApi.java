@@ -31,6 +31,6 @@ public class DailyApi extends AlphaVantageApi {
    */
   public DailyResponse get(DailyParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return parseResponse(data, DailyResponse.class);
+    return this.parseResponse(data, DailyResponse.class);
   }
 }

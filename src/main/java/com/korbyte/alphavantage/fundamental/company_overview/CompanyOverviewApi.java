@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.fundamental.company_overview;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -13,8 +14,8 @@ public class CompanyOverviewApi extends AlphaVantageApi {
     super(config, client);
   }
 
-  public CompanyOverviewResponse get(CompanyOverviewParams params) throws URISyntaxException, IOException {
+  public CompanyOverviewResponse get(CompanyOverviewParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, CompanyOverviewResponse.class);
+    return this.parseResponse(data, CompanyOverviewResponse.class);
   }
 }

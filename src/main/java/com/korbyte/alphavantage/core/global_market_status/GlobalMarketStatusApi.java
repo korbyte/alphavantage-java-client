@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.core.global_market_status;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -19,8 +20,8 @@ public class GlobalMarketStatusApi extends AlphaVantageApi {
    * @param params GlobalMarketStatusParams object
    * @return GlobalMarketStatusResponse
    */
-  public GlobalMarketStatusResponse get(GlobalMarketStatusParams params) throws URISyntaxException, IOException {
+  public GlobalMarketStatusResponse get(GlobalMarketStatusParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, GlobalMarketStatusResponse.class);
+    return this.parseResponse(data, GlobalMarketStatusResponse.class);
   }
 }

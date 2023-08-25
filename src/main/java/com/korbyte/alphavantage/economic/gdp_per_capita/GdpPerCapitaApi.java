@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.economic.gdp.GdpResponse;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -19,8 +20,8 @@ public class GdpPerCapitaApi extends AlphaVantageApi {
     super(config, client);
   }
 
-  public GdpResponse get(GdpPerCapitaParams params) throws URISyntaxException, IOException {
+  public GdpResponse get(GdpPerCapitaParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, GdpResponse.class);
+    return this.parseResponse(data, GdpResponse.class);
   }
 }

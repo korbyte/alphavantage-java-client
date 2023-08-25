@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.core.intraday;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -13,8 +14,8 @@ public class IntradayApi extends AlphaVantageApi {
     super(config, client);
   }
 
-  public IntradayResponse get(IntradayParams params) throws URISyntaxException, IOException {
+  public IntradayResponse get(IntradayParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, IntradayResponse.class);
+    return this.parseResponse(data, IntradayResponse.class);
   }
 }

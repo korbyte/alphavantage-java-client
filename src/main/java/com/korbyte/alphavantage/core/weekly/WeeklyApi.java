@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.core.weekly;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -22,8 +23,8 @@ public class WeeklyApi extends AlphaVantageApi {
    * @param params WeeklyParams
    * @return WeeklyResponse
    */
-  public WeeklyResponse get(WeeklyParams params) throws URISyntaxException, IOException {
+  public WeeklyResponse get(WeeklyParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, WeeklyResponse.class);
+    return this.parseResponse(data, WeeklyResponse.class);
   }
 }

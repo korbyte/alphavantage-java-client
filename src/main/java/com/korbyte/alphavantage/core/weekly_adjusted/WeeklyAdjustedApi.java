@@ -5,6 +5,7 @@ import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
 import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedParams;
 import com.korbyte.alphavantage.core.weekly_adjusted.WeeklyAdjustedResponse;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -24,8 +25,8 @@ public class WeeklyAdjustedApi extends AlphaVantageApi {
    * @param params WeeklyParams
    * @return WeeklyResponse
    */
-  public WeeklyAdjustedResponse get(WeeklyAdjustedParams params) throws URISyntaxException, IOException {
+  public WeeklyAdjustedResponse get(WeeklyAdjustedParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, WeeklyAdjustedResponse.class);
+    return this.parseResponse(data, WeeklyAdjustedResponse.class);
   }
 }

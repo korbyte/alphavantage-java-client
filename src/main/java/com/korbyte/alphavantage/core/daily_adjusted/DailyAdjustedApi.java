@@ -3,6 +3,8 @@ package com.korbyte.alphavantage.core.daily_adjusted;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.core.daily.DailyResponse;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -28,8 +30,8 @@ public class DailyAdjustedApi extends AlphaVantageApi {
    * @param params DailyParams object
    * @return DailyResponse
    */
-  public DailyAdjustedResponse get(DailyAdjustedParams params) throws URISyntaxException, IOException {
+  public DailyAdjustedResponse get(DailyAdjustedParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, DailyAdjustedResponse.class);
+    return this.parseResponse(data, DailyAdjustedResponse.class);
   }
 }

@@ -3,6 +3,7 @@ package com.korbyte.alphavantage.technical.rsi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -21,11 +22,13 @@ public class RsiApi extends AlphaVantageApi  {
   /**
    * Get RSI data
    * @param params RsiParams
-   * @return RsiResponse
-   * @throws Exception exception
+   * @return RsiResponse data
+   * @throws URISyntaxException
+   * @throws IOException
+   * @throws ApiResponseException
    */
-  public RsiResponse get(RsiParams params) throws URISyntaxException, IOException {
+  public RsiResponse get(RsiParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
-    return new ObjectMapper().readValue(data, RsiResponse.class);
+    return this.parseResponse(data, RsiResponse.class);
   }
 }
