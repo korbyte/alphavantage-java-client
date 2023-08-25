@@ -1,9 +1,13 @@
 package com.korbyte.alphavantage.error;
 
-public class ApiResponseError extends Exception {
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Setter;
 
-  public ApiResponseError(String message) {
-    super(message);
-  }
-
+@Data
+public class ApiResponseError {
+  @JsonProperty(value = "Note")
+  @Setter(AccessLevel.NONE)
+  private String error;
 }
