@@ -2,7 +2,7 @@ package com.korbyte.alphavantage.core.daily;
 
 import com.korbyte.alphavantage.AlphaVantageApi;
 import com.korbyte.alphavantage.AlphaVantageConfig;
-import com.korbyte.alphavantage.error.ApiResponseError;
+import com.korbyte.alphavantage.error.ApiResponseException;
 import okhttp3.OkHttpClient;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class DailyApi extends AlphaVantageApi {
    * @param params DailyParams object
    * @return DailyResponse
    */
-  public DailyResponse get(DailyParams params) throws URISyntaxException, IOException, ApiResponseError {
+  public DailyResponse get(DailyParams params) throws URISyntaxException, IOException, ApiResponseException {
     String data = this.query(params);
     return parseResponse(data, DailyResponse.class);
   }
