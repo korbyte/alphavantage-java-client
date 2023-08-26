@@ -23,8 +23,7 @@ public class AlphaVantageClient {
    *
    * @param config AlphaVantageConfig object
    */
-  public AlphaVantageClient(AlphaVantageConfig config) {
-    OkHttpClient client = new OkHttpClient();
+  public AlphaVantageClient(AlphaVantageConfig config, OkHttpClient client) {
     this.core = new CoreApi(config, client);
     this.fundamental = new FundamentalApi(config, client);
     this.economic = new EconomicApi(config, client);
