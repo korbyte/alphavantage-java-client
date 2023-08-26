@@ -30,9 +30,9 @@ public class ListingStatusApi extends AlphaVantageApi {
    *
    * @param params ListingStatusParams object
    * @return List of ListingStatusResponse objects
-   * @throws URISyntaxException
-   * @throws IOException
-   * @throws CsvValidationException
+   * @throws URISyntaxException URL is invalid
+   * @throws IOException       Network error
+   * @throws CsvValidationException CSV data is invalid
    */
   public List<ListingStatusResponse> get(ListingStatusParams params)
     throws URISyntaxException, IOException, CsvValidationException {
@@ -45,8 +45,8 @@ public class ListingStatusApi extends AlphaVantageApi {
    *
    * @param data CSV data
    * @return List of ListingStatusResponse objects
-   * @throws CsvValidationException
-   * @throws IOException
+   * @throws CsvValidationException CSV data is invalid
+   * @throws IOException           Network error
    */
   private List<ListingStatusResponse> parseCSV(String data) throws CsvValidationException, IOException {
     List<ListingStatusResponse> listingStatusResponses = new ArrayList<>();
