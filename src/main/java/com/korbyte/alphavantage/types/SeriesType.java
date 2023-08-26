@@ -18,14 +18,9 @@ public enum SeriesType {
     this.seriesType = seriesType;
   }
 
-  @JsonValue
-  @Override
-  public String toString() {
-    return seriesType;
-  }
-
   /**
    * Deserialization: Convert a given string to the corresponding enum value
+   *
    * @param value The string to convert
    */
   @JsonCreator
@@ -36,5 +31,11 @@ public enum SeriesType {
       }
     }
     throw new IllegalArgumentException("Cannot deserialize value of type SeriesType from string: " + value);
+  }
+
+  @JsonValue
+  @Override
+  public String toString() {
+    return seriesType;
   }
 }

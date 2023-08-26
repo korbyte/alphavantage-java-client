@@ -10,6 +10,7 @@ import java.net.URISyntaxException;
 
 /**
  * GDP per capita is a measure of country's gross domestic product.
+ *
  * @see <a href="https://www.alphavantage.co/documentation/#real-gdp">AlphaVantage Documentation</a>
  */
 public class GdpApi extends AlphaVantageApi {
@@ -20,10 +21,11 @@ public class GdpApi extends AlphaVantageApi {
 
   /**
    * Get GDP data
+   *
    * @param params The parameters for the GDP data request
    * @return GDP data
-   * @throws URISyntaxException URL is invalid
-   * @throws IOException Network error
+   * @throws URISyntaxException   URL is invalid
+   * @throws IOException          Network error
    * @throws ApiResponseException API response error
    */
   public GdpResponse get(GdpParams params) throws URISyntaxException, IOException, ApiResponseException {

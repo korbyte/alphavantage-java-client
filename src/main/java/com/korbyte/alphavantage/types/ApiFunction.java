@@ -31,14 +31,9 @@ public enum ApiFunction {
     this.function = function;
   }
 
-  @JsonValue
-  @Override
-  public String toString() {
-    return function;
-  }
-
   /**
    * Deserialization: Convert a given string to the corresponding enum value
+   *
    * @param value The string to convert
    */
   @JsonCreator
@@ -49,5 +44,11 @@ public enum ApiFunction {
       }
     }
     throw new IllegalArgumentException("Cannot deserialize value of type ApiFunction from string: " + value);
+  }
+
+  @JsonValue
+  @Override
+  public String toString() {
+    return function;
   }
 }

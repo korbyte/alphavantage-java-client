@@ -10,6 +10,7 @@ import lombok.Setter;
 
 /**
  * Representation of the RSI API parameters
+ *
  * @see <a href="https://www.alphavantage.co/documentation/#rsi">RSI API</a>
  */
 @Data

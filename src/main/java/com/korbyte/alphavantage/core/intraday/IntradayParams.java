@@ -10,6 +10,7 @@ import lombok.Setter;
 
 /**
  * Representation of the parameters for the intraday data API from alphavantage.co
+ *
  * @see <a href="https://www.alphavantage.co/documentation/#intraday">https://www.alphavantage.co/documentation/#intraday</a>
  */
 @Data

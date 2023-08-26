@@ -13,14 +13,9 @@ public enum YearIntervalType {
     this.interval = intervalType;
   }
 
-  @JsonValue
-  @Override
-  public String toString() {
-    return interval;
-  }
-
   /**
    * Deserialization: Convert a given string to the corresponding enum value
+   *
    * @param value The string to convert
    */
   @JsonCreator
@@ -31,5 +26,11 @@ public enum YearIntervalType {
       }
     }
     throw new IllegalArgumentException("Cannot deserialize value of type YearIntervalType from string: " + value);
+  }
+
+  @JsonValue
+  @Override
+  public String toString() {
+    return interval;
   }
 }

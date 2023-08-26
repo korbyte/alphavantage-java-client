@@ -10,9 +10,10 @@ import java.net.URISyntaxException;
 
 /**
  * RSI API
+ *
  * @see <a href="https://www.alphavantage.co/documentation/#rsi">RSI Documentation</a>
  */
-public class RsiApi extends AlphaVantageApi  {
+public class RsiApi extends AlphaVantageApi {
 
   public RsiApi(AlphaVantageConfig config, OkHttpClient client) {
     super(config, client);
@@ -20,10 +21,11 @@ public class RsiApi extends AlphaVantageApi  {
 
   /**
    * Get RSI data
+   *
    * @param params RsiParams
    * @return RsiResponse data
-   * @throws URISyntaxException URL is invalid
-   * @throws IOException Network error
+   * @throws URISyntaxException   URL is invalid
+   * @throws IOException          Network error
    * @throws ApiResponseException API response error
    */
   public RsiResponse get(RsiParams params) throws URISyntaxException, IOException, ApiResponseException {

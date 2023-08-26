@@ -16,14 +16,9 @@ public enum MinIntervalType {
     this.interval = interval;
   }
 
-  @JsonValue
-  @Override
-  public String toString() {
-    return interval;
-  }
-
   /**
    * Deserialization: Convert a given string to the corresponding enum value
+   *
    * @param value The string to convert
    */
   @JsonCreator
@@ -34,5 +29,11 @@ public enum MinIntervalType {
       }
     }
     throw new IllegalArgumentException("Cannot deserialize value of type MinIntervalType from string: " + value);
+  }
+
+  @JsonValue
+  @Override
+  public String toString() {
+    return interval;
   }
 }

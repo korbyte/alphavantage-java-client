@@ -10,19 +10,20 @@ import okhttp3.OkHttpClient;
 
 /**
  * Economic API
+ *
  * @see <a href="https://www.alphavantage.co/documentation/#economic-indicators">Economic Indicators</a>
  */
 @Getter
 @Accessors(fluent = true, chain = true)
 public class EconomicApi extends AlphaVantageApi {
 
-    private final GdpApi gdp;
-    private final GdpPerCapitaApi gdpPerCapita;
+  private final GdpApi gdp;
+  private final GdpPerCapitaApi gdpPerCapita;
 
-    public EconomicApi(AlphaVantageConfig config, OkHttpClient client) {
-      super(config, client);
-      this.gdp = new GdpApi(config, client);
-      this.gdpPerCapita = new GdpPerCapitaApi(config, client);
-    }
+  public EconomicApi(AlphaVantageConfig config, OkHttpClient client) {
+    super(config, client);
+    this.gdp = new GdpApi(config, client);
+    this.gdpPerCapita = new GdpPerCapitaApi(config, client);
+  }
 
 }

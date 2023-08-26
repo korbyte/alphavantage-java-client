@@ -8,6 +8,7 @@ import lombok.Setter;
 
 /**
  * Representation of the parameters for the Real GDP data API from alphavantage.co
+ *
  * @see <a href="https://www.alphavantage.co/documentation/#real-gdp">https://www.alphavantage.co/documentation/#real-gdp</a>
  */
 @Data

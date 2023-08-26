@@ -11,9 +11,9 @@ import java.net.URISyntaxException;
 /**
  * Daily Adjusted API
  * <p>
- *   This API returns raw (as-traded) daily open/high/low/close/volume values, adjusted close values, and historical
- *   split/dividend events of the global equity specified, covering 20+ years of historical data. The OHLCV data is
- *   sometimes called "candles" in finance literature.
+ * This API returns raw (as-traded) daily open/high/low/close/volume values, adjusted close values, and historical
+ * split/dividend events of the global equity specified, covering 20+ years of historical data. The OHLCV data is
+ * sometimes called "candles" in finance literature.
  * </p>
  * see <a href="https://www.alphavantage.co/documentation/#dailyadj">Daily Adjusted Api</a>
  */

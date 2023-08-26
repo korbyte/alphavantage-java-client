@@ -13,25 +13,26 @@ public enum OutputSize {
     this.outputSize = outputSize;
   }
 
-  @JsonValue
-  @Override
-  public String toString() {
-    return outputSize;
-  }
-
   /**
    * Deserialization: Convert a given string to the corresponding enum value
+   *
    * @param value The string to convert
    */
   @JsonCreator
   public static OutputSize fromString(String value) {
     value = value.toLowerCase();
-    if(value.contains("compact")) {
+    if (value.contains("compact")) {
       return COMPACT;
-    } else if(value.contains("full")) {
+    } else if (value.contains("full")) {
       return FULL;
     } else {
       throw new IllegalArgumentException("Cannot deserialize value of type OutputSize from string: " + value);
     }
+  }
+
+  @JsonValue
+  @Override
+  public String toString() {
+    return outputSize;
   }
 }

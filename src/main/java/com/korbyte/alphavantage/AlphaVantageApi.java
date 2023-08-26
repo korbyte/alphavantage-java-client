@@ -13,8 +13,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.apache.hc.core5.net.URIBuilder;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.net.URI;
@@ -27,13 +25,11 @@ import java.util.Map;
 @Data
 public abstract class AlphaVantageApi {
 
+  private static final ObjectMapper MAPPER = new ObjectMapper();
   @Getter(value = AccessLevel.PRIVATE)
   private final AlphaVantageConfig config;
-
   @Getter(value = AccessLevel.PRIVATE)
   private final OkHttpClient client;
-
-  private static final ObjectMapper MAPPER = new ObjectMapper();
 
   public AlphaVantageApi(AlphaVantageConfig config, OkHttpClient client) {
     this.config = config;
@@ -42,10 +38,11 @@ public abstract class AlphaVantageApi {
 
   /**
    * Query Alpha Vantage API into string response
+   *
    * @param parameters Object
    * @return String
    * @throws URISyntaxException URL is invalid
-   * @throws IOException Network error
+   * @throws IOException        Network error
    */
   public String query(Object parameters) throws URISyntaxException, IOException {
     Map<String, String> mappedParameters = mapParameters(parameters);
@@ -86,7 +83,8 @@ public abstract class AlphaVantageApi {
   }
 
   private Map<String, String> mapParameters(Object obj) {
-    return MAPPER.convertValue(obj, new TypeReference<>() {});
+    return MAPPER.convertValue(obj, new TypeReference<>() {
+    });
   }
 
 
