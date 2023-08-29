@@ -3,6 +3,8 @@ package com.korbyte.alphavantage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.korbyte.alphavantage.error.ApiErrorType;
 import com.korbyte.alphavantage.error.ApiResponseError;
 import com.korbyte.alphavantage.error.ApiResponseException;
 import lombok.AccessLevel;
@@ -13,6 +15,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.apache.hc.core5.net.URIBuilder;
+
 
 import java.io.IOException;
 import java.net.URI;
@@ -87,13 +90,42 @@ public abstract class AlphaVantageApi {
     });
   }
 
+  /**
+   * Parse the error response into an exception
+   * @param rawResponse The raw response from the API
+   * @return The parsed exception
+   * @throws JsonProcessingException If the response cannot be parsed
+   */
+  protected ApiResponseException parseError(String rawResponse) throws JsonProcessingException {
+    ObjectMapper errorMapper = new ObjectMapper();
+    errorMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-  protected <T> T parseResponse(String rawResponse, Class<T> tClass) throws JsonProcessingException, ApiResponseException {
+    ApiResponseError responseError = errorMapper.readValue(rawResponse, ApiResponseError.class);
+    if(responseError.getMaxCallError() != null) {
+      return new ApiResponseException(responseError.getMaxCallError(), responseError, ApiErrorType.MAX_CALL_ERROR);
+    } else if (responseError.getMaxVolumeError() != null ) {
+      return new ApiResponseException(responseError.getMaxVolumeError(), responseError, ApiErrorType.MAX_VOLUME_ERROR);
+    } else {
+      throw new RuntimeException("Unknown error detected");
+    }
+  }
+
+  /**
+   * Parse the response into the given class
+   * @param rawResponse The raw response from the API
+   * @param tClass The class to parse the response into
+   * @return The parsed response
+   * @param <T> The type of the response
+   * @throws ApiResponseException If the response is an error
+   * @throws JsonProcessingException If the response cannot be parsed
+   */
+  protected <T> T parseResponse(String rawResponse, Class<T> tClass) throws ApiResponseException, JsonProcessingException {
+    // optimistically, try to parse the response
+    // else try to parse the response as an error
     try {
       return MAPPER.readValue(rawResponse, tClass);
     } catch (Exception e) {
-      ApiResponseError error = MAPPER.readValue(rawResponse, ApiResponseError.class);
-      throw new ApiResponseException(e.getMessage(), error);
+      throw parseError(rawResponse);
     }
   }
 

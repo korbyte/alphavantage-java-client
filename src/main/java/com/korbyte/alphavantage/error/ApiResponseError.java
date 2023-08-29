@@ -7,7 +7,23 @@ import lombok.Setter;
 
 @Data
 public class ApiResponseError {
+  /**
+   * Error response from the API
+   * <p>
+   *   "Note": "Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day. Please visit https://www.alphavantage.co/premium/ if you would like to target a higher API call frequency."
+   * </p>
+   */
   @JsonProperty(value = "Note")
   @Setter(AccessLevel.NONE)
-  private String error;
+  private String maxCallError;
+
+  /**
+   * Over use error response from the API
+   * <p>
+   *  "Information": "Thank you for using Alpha Vantage! Please contact premium@alphavantage.co if you are targeting a higher API call volume."
+   * </p>
+   */
+  @JsonProperty(value = "Information")
+  @Setter(AccessLevel.NONE)
+  private String maxVolumeError;
 }
