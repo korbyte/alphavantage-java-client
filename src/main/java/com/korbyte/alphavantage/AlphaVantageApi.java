@@ -96,7 +96,7 @@ public abstract class AlphaVantageApi {
    * @return The parsed exception
    * @throws JsonProcessingException If the response cannot be parsed
    */
-  protected ApiResponseException parseError(String rawResponse) throws JsonProcessingException {
+  protected ApiResponseException parseError(Exception e, String rawResponse) throws JsonProcessingException {
     ObjectMapper errorMapper = new ObjectMapper();
     errorMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
@@ -105,8 +105,10 @@ public abstract class AlphaVantageApi {
       return new ApiResponseException(responseError.getMaxCallError(), responseError, ApiErrorType.MAX_CALL_ERROR);
     } else if (responseError.getMaxVolumeError() != null ) {
       return new ApiResponseException(responseError.getMaxVolumeError(), responseError, ApiErrorType.MAX_VOLUME_ERROR);
+    } else if (responseError.getInvalidApiCall() != null){
+      return new ApiResponseException(responseError.getInvalidApiCall(), responseError, ApiErrorType.INVALID_API_CALL);
     } else {
-      throw new RuntimeException("Unknown error detected");
+      throw new RuntimeException(e.getMessage());
     }
   }
 
@@ -125,7 +127,7 @@ public abstract class AlphaVantageApi {
     try {
       return MAPPER.readValue(rawResponse, tClass);
     } catch (Exception e) {
-      throw parseError(rawResponse);
+      throw parseError(e, rawResponse);
     }
   }
 
