@@ -42,11 +42,7 @@ dependencies {
   implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.2")
   implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.15.2")
   implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.15.2")
-
-
-
-
-  implementation("com.opencsv:opencsv:5.8")
+  implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.15.2")
 
   testImplementation(platform("org.junit:junit-bom:5.9.1"))
   testImplementation("org.junit.jupiter:junit-jupiter")
