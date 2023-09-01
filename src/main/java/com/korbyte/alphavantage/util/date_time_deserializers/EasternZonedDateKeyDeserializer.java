@@ -9,6 +9,6 @@ public class EasternZonedDateKeyDeserializer extends KeyDeserializer {
 
   @Override
   public ZonedDateTime deserializeKey(String key, DeserializationContext ctxt) {
-    return BaseZonedDateTimeBaseDeserializer.deserialize(key, "America/New_York");
+    return BaseZonedDateTimeDeserializer.deserialize(key);
   }
 }

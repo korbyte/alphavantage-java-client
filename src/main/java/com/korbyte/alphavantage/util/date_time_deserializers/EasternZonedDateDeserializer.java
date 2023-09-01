@@ -12,6 +12,6 @@ public class EasternZonedDateDeserializer extends JsonDeserializer<ZonedDateTime
   @Override
   public ZonedDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
     String dateTimeStr = p.getText();
-    return BaseZonedDateTimeBaseDeserializer.deserialize(dateTimeStr, "America/New_York");
+    return BaseZonedDateTimeDeserializer.deserialize(dateTimeStr);
   }
 }
