@@ -36,7 +36,16 @@ dependencies {
   implementation("com.squareup.okhttp3:okhttp:4.10.0")
   implementation("org.apache.httpcomponents.client5:httpclient5:5.2.1")
 
+  implementation("com.fasterxml.jackson.core:jackson-core:2.15.2")
   implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+  implementation("com.fasterxml.jackson.core:jackson-annotations:2.15.2")
+  implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.2")
+  implementation("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.15.2")
+  implementation("com.fasterxml.jackson.module:jackson-module-parameter-names:2.15.2")
+
+
+
+
   implementation("com.opencsv:opencsv:5.8")
 
   testImplementation(platform("org.junit:junit-bom:5.9.1"))
