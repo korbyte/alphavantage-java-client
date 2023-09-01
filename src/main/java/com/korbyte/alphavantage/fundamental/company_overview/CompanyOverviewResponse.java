@@ -1,9 +1,11 @@
 package com.korbyte.alphavantage.fundamental.company_overview;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.korbyte.alphavantage.util.date_time_deserializers.EasternZonedDateDeserializer;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 @Data
 public class CompanyOverviewResponse {
@@ -45,7 +47,8 @@ public class CompanyOverviewResponse {
   private String fiscalYearEnd;
 
   @JsonProperty("LatestQuarter")
-  private Date latestQuarter;
+  @JsonDeserialize(using = EasternZonedDateDeserializer.class)
+  private ZonedDateTime latestQuarter;
 
   @JsonProperty("MarketCapitalization")
   private Double marketCapitalization;
@@ -141,9 +144,11 @@ public class CompanyOverviewResponse {
   private Double sharesOutstanding;
 
   @JsonProperty("DividendDate")
-  private Date dividendDate;
+  @JsonDeserialize(using = EasternZonedDateDeserializer.class)
+  private ZonedDateTime dividendDate;
 
   @JsonProperty("ExDividendDate")
-  private Date exDividendDate;
+  @JsonDeserialize(using = EasternZonedDateDeserializer.class)
+  private ZonedDateTime exDividendDate;
 }
 

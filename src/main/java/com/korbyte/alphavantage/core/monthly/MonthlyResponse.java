@@ -1,11 +1,14 @@
 package com.korbyte.alphavantage.core.monthly;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.korbyte.alphavantage.core.monthly.models.MonthlyMetadata;
 import com.korbyte.alphavantage.core.monthly.models.MonthlyPositionData;
+import com.korbyte.alphavantage.util.date_time_deserializers.EasternZonedDateKeyDeserializer;
 import lombok.Data;
 
-import java.util.Date;
+
+import java.time.ZonedDateTime;
 import java.util.Map;
 
 /**
@@ -17,5 +20,6 @@ public class MonthlyResponse {
   private MonthlyMetadata metaData;
 
   @JsonProperty("Monthly Time Series")
-  private Map<Date, MonthlyPositionData> timeSeriesMonthly;
+  @JsonDeserialize(keyUsing = EasternZonedDateKeyDeserializer.class)
+  private Map<ZonedDateTime, MonthlyPositionData> timeSeriesMonthly;
 }

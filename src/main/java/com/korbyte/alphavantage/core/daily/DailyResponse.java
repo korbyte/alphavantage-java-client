@@ -3,9 +3,11 @@ package com.korbyte.alphavantage.core.daily;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.core.daily.models.DailyMetadata;
 import com.korbyte.alphavantage.core.daily.models.DailyPositionData;
+import com.korbyte.alphavantage.util.date_time_deserializers.EasternZonedDateKeyDeserializer;
 import lombok.Data;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.Map;
 
 @Data
@@ -14,5 +16,6 @@ public class DailyResponse {
   private DailyMetadata metaData;
 
   @JsonProperty("Time Series (Daily)")
-  private Map<Date, DailyPositionData> timeSeriesDaily;
+  @JsonDeserialize(keyUsing = EasternZonedDateKeyDeserializer.class)
+  private Map<ZonedDateTime, DailyPositionData> timeSeriesDaily;
 }

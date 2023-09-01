@@ -1,9 +1,11 @@
 package com.korbyte.alphavantage.base;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.korbyte.alphavantage.util.date_time_deserializers.EasternZonedDateDeserializer;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 /**
  * Alpha Vantage API BaseMetadata
@@ -18,5 +20,6 @@ public abstract class BaseMetadata {
   private String symbol;
 
   @JsonProperty(value = "3. Last Refreshed")
-  private Date lastRefreshed;
+  @JsonDeserialize(using = EasternZonedDateDeserializer.class)
+  private ZonedDateTime lastRefreshed;
 }
