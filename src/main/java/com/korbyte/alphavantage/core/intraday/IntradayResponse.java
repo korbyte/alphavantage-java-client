@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.korbyte.alphavantage.core.intraday.models.IntradayMetadata;
 import com.korbyte.alphavantage.core.intraday.models.IntradayPositionData;
-import com.korbyte.alphavantage.util.date_time_deserializers.BaseZonedDateTimeBaseDeserializer;
+import com.korbyte.alphavantage.util.date_time_deserializers.BaseZonedDateTimeDeserializer;
 import lombok.Data;
 
 import java.time.ZonedDateTime;
@@ -27,7 +27,7 @@ public class IntradayResponse {
     if(key.contains("Time Series")){
       dataMap = new HashMap<>();
       for(String date : list.keySet()){
-        ZonedDateTime zonedDateTime = BaseZonedDateTimeBaseDeserializer.deserialize(date, "America/New_York");
+        ZonedDateTime zonedDateTime = BaseZonedDateTimeDeserializer.deserialize(date);
         dataMap.put(zonedDateTime, list.get(date));
       }
 
