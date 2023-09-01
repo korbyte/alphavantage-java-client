@@ -28,13 +28,15 @@ import java.util.Map;
 @Data
 public abstract class AlphaVantageApi {
 
-  private static final ObjectMapper MAPPER = new ObjectMapper();
+  private final ObjectMapper objectMapper;
   @Getter(value = AccessLevel.PRIVATE)
   private final AlphaVantageConfig config;
   @Getter(value = AccessLevel.PRIVATE)
   private final OkHttpClient client;
 
   public AlphaVantageApi(AlphaVantageConfig config, OkHttpClient client) {
+    this.objectMapper = new ObjectMapper();
+    this.objectMapper.findAndRegisterModules();
     this.config = config;
     this.client = client;
   }
@@ -86,7 +88,7 @@ public abstract class AlphaVantageApi {
   }
 
   private Map<String, String> mapParameters(Object obj) {
-    return MAPPER.convertValue(obj, new TypeReference<>() {
+    return objectMapper.convertValue(obj, new TypeReference<>() {
     });
   }
 
@@ -98,6 +100,7 @@ public abstract class AlphaVantageApi {
    */
   protected ApiResponseException parseError(Exception e, String rawResponse) throws JsonProcessingException {
     ObjectMapper errorMapper = new ObjectMapper();
+    errorMapper.findAndRegisterModules();
     errorMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     ApiResponseError responseError = errorMapper.readValue(rawResponse, ApiResponseError.class);
@@ -125,7 +128,7 @@ public abstract class AlphaVantageApi {
     // optimistically, try to parse the response
     // else try to parse the response as an error
     try {
-      return MAPPER.readValue(rawResponse, tClass);
+      return objectMapper.readValue(rawResponse, tClass);
     } catch (Exception e) {
       throw parseError(e, rawResponse);
     }
