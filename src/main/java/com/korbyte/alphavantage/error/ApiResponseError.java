@@ -26,4 +26,14 @@ public class ApiResponseError {
   @JsonProperty(value = "Information")
   @Setter(AccessLevel.NONE)
   private String maxVolumeError;
+
+  /**
+   * Invalid API call error response from the API
+   * <p>
+   *   "Error Message": "Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for [the api call]."
+   * </p>
+   */
+  @JsonProperty(value = "Error Message")
+  @Setter(AccessLevel.NONE)
+  private String invalidApiCall;
 }
