@@ -7,7 +7,6 @@ import com.korbyte.alphavantage.core.monthly.models.MonthlyPositionData;
 import com.korbyte.alphavantage.util.date_time_deserializers.EasternZonedDateKeyDeserializer;
 import lombok.Data;
 
-
 import java.time.ZonedDateTime;
 import java.util.Map;
 

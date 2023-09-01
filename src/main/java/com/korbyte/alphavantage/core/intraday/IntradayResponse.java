@@ -24,9 +24,9 @@ public class IntradayResponse {
   @JsonAnySetter
   public void setDynamicField(String key, Map<String, IntradayPositionData> list) {
     Map<ZonedDateTime, IntradayPositionData> dataMap = null;
-    if(key.contains("Time Series")){
+    if (key.contains("Time Series")) {
       dataMap = new HashMap<>();
-      for(String date : list.keySet()){
+      for (String date : list.keySet()) {
         ZonedDateTime zonedDateTime = BaseZonedDateTimeDeserializer.deserialize(date);
         dataMap.put(zonedDateTime, list.get(date));
       }

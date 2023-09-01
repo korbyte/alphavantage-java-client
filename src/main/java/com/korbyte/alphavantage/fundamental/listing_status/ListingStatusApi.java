@@ -11,10 +11,7 @@ import okhttp3.OkHttpClient;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URISyntaxException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,8 +30,8 @@ public class ListingStatusApi extends AlphaVantageApi {
    *
    * @param params ListingStatusParams object
    * @return List of StockStatus objects
-   * @throws URISyntaxException URL is invalid
-   * @throws IOException       Network error
+   * @throws URISyntaxException     URL is invalid
+   * @throws IOException            Network error
    * @throws CsvValidationException CSV data is invalid
    */
   public ListingStatusResponse get(ListingStatusParams params)
@@ -51,7 +48,7 @@ public class ListingStatusApi extends AlphaVantageApi {
    * @param data CSV data
    * @return List of StockStatus objects
    * @throws CsvValidationException CSV data is invalid
-   * @throws IOException           Network error
+   * @throws IOException            Network error
    */
   private List<StockStatus> parseCSV(String data) throws CsvValidationException, IOException {
     List<StockStatus> stockStatusResponse = new ArrayList<>();

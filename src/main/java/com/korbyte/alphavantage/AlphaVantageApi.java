@@ -2,8 +2,8 @@ package com.korbyte.alphavantage;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korbyte.alphavantage.error.ApiErrorType;
 import com.korbyte.alphavantage.error.ApiResponseError;
 import com.korbyte.alphavantage.error.ApiResponseException;
@@ -15,7 +15,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.apache.hc.core5.net.URIBuilder;
-
 
 import java.io.IOException;
 import java.net.URI;
@@ -94,6 +93,7 @@ public abstract class AlphaVantageApi {
 
   /**
    * Parse the error response into an exception
+   *
    * @param rawResponse The raw response from the API
    * @return The parsed exception
    * @throws JsonProcessingException If the response cannot be parsed
@@ -104,11 +104,11 @@ public abstract class AlphaVantageApi {
     errorMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     ApiResponseError responseError = errorMapper.readValue(rawResponse, ApiResponseError.class);
-    if(responseError.getMaxCallError() != null) {
+    if (responseError.getMaxCallError() != null) {
       return new ApiResponseException(responseError.getMaxCallError(), responseError, ApiErrorType.MAX_CALL_ERROR);
-    } else if (responseError.getMaxVolumeError() != null ) {
+    } else if (responseError.getMaxVolumeError() != null) {
       return new ApiResponseException(responseError.getMaxVolumeError(), responseError, ApiErrorType.MAX_VOLUME_ERROR);
-    } else if (responseError.getInvalidApiCall() != null){
+    } else if (responseError.getInvalidApiCall() != null) {
       return new ApiResponseException(responseError.getInvalidApiCall(), responseError, ApiErrorType.INVALID_API_CALL);
     } else {
       throw new RuntimeException(e.getMessage());
@@ -117,11 +117,12 @@ public abstract class AlphaVantageApi {
 
   /**
    * Parse the response into the given class
+   *
    * @param rawResponse The raw response from the API
-   * @param tClass The class to parse the response into
+   * @param tClass      The class to parse the response into
+   * @param <T>         The type of the response
    * @return The parsed response
-   * @param <T> The type of the response
-   * @throws ApiResponseException If the response is an error
+   * @throws ApiResponseException    If the response is an error
    * @throws JsonProcessingException If the response cannot be parsed
    */
   protected <T> T parseResponse(String rawResponse, Class<T> tClass) throws ApiResponseException, JsonProcessingException {
