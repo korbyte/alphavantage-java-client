@@ -22,8 +22,6 @@ public class ListingStatusApi extends AlphaVantageApi {
     super(config, client);
   }
 
-  //todo figure out what happens when rate limit is hit and this method is called on the AV side
-
   /**
    * Get the listing status of all securities supported by Alpha Vantage
    *
