@@ -1,2 +1,2 @@
-rootProject.name = "alphavantage-client-java"
+rootProject.name = "alphavantage-java-client"
 
