@@ -52,7 +52,6 @@ public abstract class AlphaVantageApi {
     Map<String, String> mappedParameters = mapParameters(parameters);
     injectApiKey(mappedParameters);
     URI uri = buildFullURI(mappedParameters);
-    System.out.println(uri.toString());
     return request(uri);
   }
 
